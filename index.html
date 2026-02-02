@@ -30,7 +30,6 @@ body {
   height: 150px;
   margin: 0 auto 20px;
   border-radius: 50%;
-  border: 1px solid #ffd700;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,7 +40,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 52%; /* 🔽 jemný posun dolů (~1 mm) */
+  object-position: center 52%; /* jemný posun dolů */
   border-radius: 50%;
 }
 
@@ -187,14 +186,86 @@ body {
     </div>
   </div>
 
-  <div class="bottom-text">
-    URHEIM © 2020<br>
-    Website by GitHub
+  <!-- CONTACT -->
+  <div>
+    <div id="contactHeader" class="header">Contact</div>
+    <div id="contactEmail" class="slide">
+      <div class="email-line">
+        <a id="gmail" data-sound="GmailSound.mp3" href="mailto:officielurheim@gmail.com">
+          officielurheim@gmail.com
+        </a>
+      </div>
+    </div>
+
+    <div class="bottom-text">
+      URHEIM © 2020<br>
+      Website by GitHub
+    </div>
   </div>
 
   <audio id="hoverSound"></audio>
 
 </div>
+
+<script>
+const hoverSound = document.getElementById("hoverSound");
+
+/* SOCIAL ICONS */
+document.querySelectorAll(".social-row a").forEach(link => {
+
+  link.addEventListener("mouseenter", () => {
+    document.querySelectorAll(".social-row a").forEach(a => {
+      if (a !== link) a.style.opacity = "0.25";
+    });
+  });
+
+  link.addEventListener("mouseleave", () => {
+    document.querySelectorAll(".social-row a").forEach(a => {
+      a.style.opacity = "1";
+    });
+  });
+
+  link.addEventListener("click", e => {
+    e.preventDefault();
+
+    hoverSound.src = link.dataset.sound;
+    hoverSound.currentTime = 0;
+    hoverSound.play();
+
+    link.style.transform = "scale(1.25)";
+
+    setTimeout(() => {
+      window.open(link.href, "_blank");
+      link.style.transform = "scale(1)";
+      document.querySelectorAll(".social-row a").forEach(a => a.style.opacity = "1");
+    }, 300);
+  });
+});
+
+/* CONTACT */
+const contactHeader = document.getElementById("contactHeader");
+const contactEmail = document.getElementById("contactEmail");
+const gmail = document.getElementById("gmail");
+
+contactHeader.onclick = () => {
+  contactEmail.classList.toggle("open");
+};
+
+gmail.onclick = e => {
+  e.preventDefault();
+
+  hoverSound.src = gmail.dataset.sound;
+  hoverSound.currentTime = 0;
+  hoverSound.play();
+
+  gmail.style.transform = "scale(1.15)";
+
+  setTimeout(() => {
+    window.location.href = gmail.href;
+    gmail.style.transform = "scale(1)";
+  }, 300);
+};
+</script>
 
 </body>
 </html>
