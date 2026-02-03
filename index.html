@@ -10,7 +10,6 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
 }
 
 body {
@@ -20,14 +19,14 @@ body {
   text-align: center;
 }
 
-/* MAIN CONTENT */
+/* TOP OVERLAY */
 .overlay {
   min-height: 100vh;
   background: rgba(0,0,0,0.6);
   padding: 40px 20px;
 }
 
-/* TOP */
+/* TOP LOGO */
 .top-wrapper {
   width: 150px;
   height: 150px;
@@ -53,7 +52,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 32px;
-  margin: 12px 0 0;
+  margin-top: 12px;
   font-family: "Times New Roman", Times, serif;
   font-size: 20px;
   font-style: italic;
@@ -69,9 +68,10 @@ body {
   color: #ffd700;
 }
 
-/* SCROLL SPACE */
+/* SCROLL SPACE (ZKRÁCENÝ + ČERNÝ) */
 .scroll-space {
-  height: 200vh; /* ⬅️ tady je ten 2× scroll */
+  height: 90vh;      /* akorát scroll */
+  background: #000;  /* žádný modrý pruh */
 }
 
 /* FOOTER */
@@ -110,7 +110,7 @@ body {
   transition: transform 0.2s ease, opacity 0.25s ease;
 }
 
-/* COLORS */
+/* ICON COLORS */
 .facebook i { color: #0062E0; }
 .instagram i { color: #E1306C; }
 .threads i { color: #ffffff; }
@@ -150,7 +150,6 @@ body {
 .email-line a {
   color: #ffffff;
   text-decoration: none;
-  display: inline-block;
 }
 
 /* FOOTER TEXT */
@@ -180,7 +179,7 @@ body {
   </nav>
 </div>
 
-<!-- SCROLL SPACE -->
+<!-- SCROLL GAP -->
 <div class="scroll-space"></div>
 
 <!-- FOOTER -->
@@ -224,7 +223,7 @@ body {
 <script>
 const hoverSound = document.getElementById("hoverSound");
 
-/* ICONS */
+/* SOCIAL ICONS */
 document.querySelectorAll(".social-row a").forEach(link => {
 
   link.addEventListener("mouseenter", () => {
