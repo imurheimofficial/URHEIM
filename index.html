@@ -15,6 +15,7 @@ body {
   text-align: center;
 }
 
+/* OVERLAY */
 .overlay {
   min-height: 100vh;
   background: rgba(0,0,0,0.6);
@@ -24,7 +25,7 @@ body {
   padding: 40px 0;
 }
 
-/* TOP */
+/* TOP IMAGE */
 .top-wrapper {
   width: 150px;
   height: 150px;
@@ -42,32 +43,34 @@ body {
   border-radius: 50%;
 }
 
-/* MENU BAR */
+/* =========================
+   HORNÍ MENU BAR (OPRAVENO)
+   ========================= */
 .menu-bar {
   width: 100%;
   margin-bottom: 70px;
   padding: 14px 0;
   background: rgba(0,0,0,0.78);
-  position: relative; /* ✅ nutné pro ::before */
+  position: relative;
 
   box-shadow:
     0 10px 30px rgba(0,0,0,0.75),
-    inset 0 1px 0 rgba(255,215,0,0.12),
-    inset 0 -1px 0 rgba(0,0,0,0.9);
+    inset 0 -1px 0 rgba(255,215,0,0.12); /* ✅ žlutá linka DOLE */
 }
 
-/* ✅ TADY je ten trik: černá plocha jde NAHORU až k okraji */
+/* prodloužení pruhu NAHORU až k okraji */
 .menu-bar::before {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
-  top: -2000px;                 /* natáhne se vysoko nahoru */
-  bottom: 0;                    /* končí přesně na spodku menu-bar */
-  background: rgba(0,0,0,0.78); /* stejná černá */
-  z-index: -1;                  /* je za obsahem */
+  top: -2000px;
+  bottom: 0;
+  background: rgba(0,0,0,0.78);
+  z-index: -1;
 }
 
+/* MENU */
 .main-menu {
   display: flex;
   justify-content: center;
@@ -87,7 +90,9 @@ body {
   color: #ffd700;
 }
 
-/* ICON BAR – STEJNÝ PRUH */
+/* =========================
+   SPODNÍ ICON BAR
+   ========================= */
 .icons-bar {
   width: 100%;
   margin-bottom: 20px;
@@ -95,8 +100,7 @@ body {
   background: rgba(0,0,0,0.78);
   box-shadow:
     0 10px 30px rgba(0,0,0,0.75),
-    inset 0 1px 0 rgba(255,215,0,0.12),
-    inset 0 -1px 0 rgba(0,0,0,0.9);
+    inset 0 -1px 0 rgba(255,215,0,0.12);
 }
 
 .social-row {
@@ -126,7 +130,7 @@ body {
   display: block;
 }
 
-/* COLORS */
+/* ICON COLORS */
 .facebook i { color: #0062E0; }
 .instagram i { color: #E1306C; }
 .threads i { color: #ffffff; }
@@ -189,7 +193,7 @@ body {
 
         <!-- TIKTOK SVG -->
         <a class="tiktok">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
             <path fill="#25F4EE"
               d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
               transform="translate(-0.5,0.6)" />
