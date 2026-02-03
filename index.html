@@ -7,20 +7,23 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-body {
+html, body {
   margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
   font-family: Arial, sans-serif;
   background: #05050a url("background.png") center / cover no-repeat;
   color: #e6e6e6;
   text-align: center;
 }
 
+/* MAIN CONTENT */
 .overlay {
   min-height: 100vh;
   background: rgba(0,0,0,0.6);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   padding: 40px 20px;
 }
 
@@ -50,7 +53,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 32px;
-  margin: 12px 0 80px; /* víc místa pod menu */
+  margin: 12px 0 0;
   font-family: "Times New Roman", Times, serif;
   font-size: 20px;
   font-style: italic;
@@ -66,10 +69,21 @@ body {
   color: #ffd700;
 }
 
+/* SCROLL SPACE */
+.scroll-space {
+  height: 200vh; /* ⬅️ tady je ten 2× scroll */
+}
+
+/* FOOTER */
+.footer {
+  background: #000;
+  padding: 40px 20px 50px;
+}
+
 /* SOCIAL */
 .social-outline {
   display: inline-block;
-  margin-bottom: 25px; /* odstup od Contact */
+  margin-bottom: 25px;
   padding: 12px 22px;
   border-radius: 999px;
   background:
@@ -137,9 +151,9 @@ body {
   color: #ffffff;
   text-decoration: none;
   display: inline-block;
-  transition: transform 0.2s ease;
 }
 
+/* FOOTER TEXT */
 .bottom-text {
   margin-top: 25px;
   font-size: 13px;
@@ -150,70 +164,67 @@ body {
 
 <body>
 
+<!-- TOP -->
 <div class="overlay">
-
-  <!-- TOP CONTENT -->
-  <div>
-    <div class="top-wrapper">
-      <img src="circle1.png" alt="URHEIM">
-    </div>
-
-    <nav class="main-menu">
-      <a href="https://imurheimofficial.github.io/URHEIM">Home</a>
-      <a href="#">Bio</a>
-      <a href="#">Music</a>
-      <a href="#">Video</a>
-      <a href="#">Colabs</a>
-      <a href="#">Contact</a>
-    </nav>
+  <div class="top-wrapper">
+    <img src="circle1.png" alt="URHEIM">
   </div>
 
-  <!-- BOTTOM CONTENT -->
-  <div>
+  <nav class="main-menu">
+    <a href="#">Home</a>
+    <a href="#">Bio</a>
+    <a href="#">Music</a>
+    <a href="#">Video</a>
+    <a href="#">Colabs</a>
+    <a href="#">Contact</a>
+  </nav>
+</div>
 
-    <!-- SOCIAL ICONS (PŘESUNUTO SEM) -->
-    <div class="social-outline">
-      <div class="social-row">
-        <a class="facebook" data-sound="FacebookSound.mp3" href="https://facebook.com/imurheimofficiaI"><i class="fab fa-facebook-f"></i></a>
-        <a class="instagram" data-sound="InstagramSound.mp3" href="https://instagram.com/imurheimofficial"><i class="fab fa-instagram"></i></a>
-        <a class="threads" data-sound="ThreadsSound.mp3" href="https://threads.com/@imurheimofficial"><i class="fab fa-threads"></i></a>
-        <a class="tiktok" data-sound="TikTokSound.mp3" href="https://tiktok.com/@imurheimofficial"><i class="fab fa-tiktok"></i></a>
-        <a class="twitter" data-sound="TwitterSound.mp3" href="https://twitter.com/imurheimoficial"><i class="fab fa-x-twitter"></i></a>
-        <a class="twitch" data-sound="TwitchSound.mp3" href="https://twitch.tv/imurheimofficial"><i class="fab fa-twitch"></i></a>
-        <a class="youtube" data-sound="YoutubeSound.mp3" href="https://youtube.com/@imurheimofficial"><i class="fab fa-youtube"></i></a>
-        <a class="spotify" data-sound="SpotifySound.mp3" href="https://open.spotify.com/user/31ot36lsksowpipo5ovni3tjtokq"><i class="fab fa-spotify"></i></a>
-        <a class="soundcloud" data-sound="SoundcloudSound.mp3" href="https://soundcloud.com/imurheimofficial"><i class="fab fa-soundcloud"></i></a>
-        <a class="discord" data-sound="DiscordSound.mp3" href="https://discordapp.com/users/1204486293132808252"><i class="fab fa-discord"></i></a>
-        <a class="reddit" data-sound="RedditSound.mp3" href="https://reddit.com/user/imurheimofficial/"><i class="fab fa-reddit"></i></a>
-        <a class="steam" data-sound="SteamSound.mp3" href="https://steamcommunity.com/id/imurheimofficial/"><i class="fab fa-steam"></i></a>
-      </div>
+<!-- SCROLL SPACE -->
+<div class="scroll-space"></div>
+
+<!-- FOOTER -->
+<div class="footer">
+
+  <div class="social-outline">
+    <div class="social-row">
+      <a class="facebook" data-sound="FacebookSound.mp3" href="https://facebook.com/imurheimofficiaI"><i class="fab fa-facebook-f"></i></a>
+      <a class="instagram" data-sound="InstagramSound.mp3" href="https://instagram.com/imurheimofficial"><i class="fab fa-instagram"></i></a>
+      <a class="threads" data-sound="ThreadsSound.mp3" href="https://threads.com/@imurheimofficial"><i class="fab fa-threads"></i></a>
+      <a class="tiktok" data-sound="TikTokSound.mp3" href="https://tiktok.com/@imurheimofficial"><i class="fab fa-tiktok"></i></a>
+      <a class="twitter" data-sound="TwitterSound.mp3" href="https://twitter.com/imurheimoficial"><i class="fab fa-x-twitter"></i></a>
+      <a class="twitch" data-sound="TwitchSound.mp3" href="https://twitch.tv/imurheimofficial"><i class="fab fa-twitch"></i></a>
+      <a class="youtube" data-sound="YoutubeSound.mp3" href="https://youtube.com/@imurheimofficial"><i class="fab fa-youtube"></i></a>
+      <a class="spotify" data-sound="SpotifySound.mp3" href="#"><i class="fab fa-spotify"></i></a>
+      <a class="soundcloud" data-sound="SoundcloudSound.mp3" href="#"><i class="fab fa-soundcloud"></i></a>
+      <a class="discord" data-sound="DiscordSound.mp3" href="#"><i class="fab fa-discord"></i></a>
+      <a class="reddit" data-sound="RedditSound.mp3" href="#"><i class="fab fa-reddit"></i></a>
+      <a class="steam" data-sound="SteamSound.mp3" href="#"><i class="fab fa-steam"></i></a>
     </div>
-
-    <!-- CONTACT -->
-    <div id="contactHeader" class="header">Contact</div>
-    <div id="contactEmail" class="slide">
-      <div class="email-line">
-        <a id="gmail" data-sound="GmailSound.mp3" href="mailto:officielurheim@gmail.com">
-          officielurheim@gmail.com
-        </a>
-      </div>
-    </div>
-
-    <div class="bottom-text">
-      URHEIM © 2020<br>
-      Website by GitHub
-    </div>
-
   </div>
 
-  <audio id="hoverSound"></audio>
+  <div id="contactHeader" class="header">Contact</div>
+  <div id="contactEmail" class="slide">
+    <div class="email-line">
+      <a id="gmail" data-sound="GmailSound.mp3" href="mailto:officielurheim@gmail.com">
+        officielurheim@gmail.com
+      </a>
+    </div>
+  </div>
+
+  <div class="bottom-text">
+    URHEIM © 2020<br>
+    Website by GitHub
+  </div>
 
 </div>
+
+<audio id="hoverSound"></audio>
 
 <script>
 const hoverSound = document.getElementById("hoverSound");
 
-/* SOCIAL ICONS */
+/* ICONS */
 document.querySelectorAll(".social-row a").forEach(link => {
 
   link.addEventListener("mouseenter", () => {
@@ -230,7 +241,6 @@ document.querySelectorAll(".social-row a").forEach(link => {
 
   link.addEventListener("click", e => {
     e.preventDefault();
-
     hoverSound.src = link.dataset.sound;
     hoverSound.currentTime = 0;
     hoverSound.play();
@@ -246,27 +256,8 @@ document.querySelectorAll(".social-row a").forEach(link => {
 });
 
 /* CONTACT */
-const contactHeader = document.getElementById("contactHeader");
-const contactEmail = document.getElementById("contactEmail");
-const gmail = document.getElementById("gmail");
-
-contactHeader.onclick = () => {
-  contactEmail.classList.toggle("open");
-};
-
-gmail.onclick = e => {
-  e.preventDefault();
-
-  hoverSound.src = gmail.dataset.sound;
-  hoverSound.currentTime = 0;
-  hoverSound.play();
-
-  gmail.style.transform = "scale(1.15)";
-
-  setTimeout(() => {
-    window.location.href = gmail.href;
-    gmail.style.transform = "scale(1)";
-  }, 300);
+document.getElementById("contactHeader").onclick = () => {
+  document.getElementById("contactEmail").classList.toggle("open");
 };
 </script>
 
