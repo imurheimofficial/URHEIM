@@ -18,31 +18,27 @@ body {
 /* OVERLAY */
 .overlay {
   min-height: 100vh;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  position: relative;
 }
 
 /* =========================
-   HORNÍ PRUH – HRANA DOLE
+   HORNÍ POZADÍ PRUH (ŠIROKÝ)
    ========================= */
 .menu-bg {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 120px;
+  height: 160px;                 /* ⬅️ ŠÍŘKA PRUHU */
   background: rgba(0,0,0,0.78);
   box-shadow:
-    0 10px 30px rgba(0,0,0,0.75),
-    inset 0 -1px 0 rgba(255,215,0,0.22), /* ⭐ POD TEXTEM */
+    inset 0 -1px 0 rgba(255,215,0,0.25), /* ⭐ HRANA POD TEXTEM */
     inset 0 -2px 0 rgba(0,0,0,0.9);
   z-index: 1;
 }
 
 /* =========================
-   SPODNÍ PRUH – HRANA NAHOŘE
+   SPODNÍ POZADÍ PRUH (BEZE ZMĚNY)
    ========================= */
 .icons-bg {
   position: fixed;
@@ -52,17 +48,16 @@ body {
   height: 120px;
   background: rgba(0,0,0,0.78);
   box-shadow:
-    0 -10px 30px rgba(0,0,0,0.75),
-    inset 0 1px 0 rgba(255,215,0,0.22), /* ⭐ NAD IKONAMI */
+    inset 0 1px 0 rgba(255,215,0,0.25), /* ⭐ HRANA NAD IKONAMI */
     inset 0 2px 0 rgba(0,0,0,0.9);
   z-index: 1;
 }
 
-/* TOP IMAGE */
+/* TOP LOGO */
 .top-wrapper {
   width: 150px;
   height: 150px;
-  margin: 40px auto 20px;
+  margin: 40px auto 10px;
   border-radius: 50%;
   overflow: hidden;
   position: relative;
@@ -73,16 +68,13 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 52%;
-  transform: translate(2px, 6px);
-  border-radius: 50%;
 }
 
-/* MENU */
+/* MENU (TEXT ZŮSTÁVÁ NA MÍSTĚ) */
 .menu-bar {
   position: relative;
   z-index: 2;
-  margin-bottom: 70px;
+  margin-bottom: 90px;
 }
 
 .main-menu {
@@ -104,11 +96,15 @@ body {
   color: #ffd700;
 }
 
-/* ICON BAR */
-.icons-bar {
+/* SPODNÍ OBSAH */
+.footer {
   position: relative;
   z-index: 2;
-  padding: 14px 0;
+  padding-bottom: 40px;
+}
+
+.icons-bar {
+  margin-bottom: 10px;
 }
 
 .social-row {
@@ -124,48 +120,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
-  transition: transform 0.2s ease;
-}
-
-.social-row a:hover {
-  transform: scale(1.25);
 }
 
 .social-row svg {
   width: 22px;
   height: 22px;
-  display: block;
 }
 
-/* ICON COLORS */
-.facebook i { color: #0062E0; }
-.instagram i { color: #E1306C; }
-.threads i { color: #ffffff; }
-.twitter i { color: #ffffff; }
-.twitch i { color: #8859E3; }
-.youtube i { color: #EB5841; }
-.spotify i { color: #38E576; }
-.soundcloud i { color: #F7861E; }
-.discord i { color: #7084D4; }
-.reddit i { color: #C00613; }
-.steam i { color: #1386B7; }
-
-/* FOOTER */
-.footer {
-  position: relative;
-  z-index: 2;
-  padding-bottom: 40px;
-}
-
+/* FOOTER TEXT */
 .header {
   margin-top: 10px;
   font-size: 15px;
-  letter-spacing: 2px;
 }
 
 .bottom-text {
-  margin-top: 25px;
+  margin-top: 20px;
   font-size: 13px;
   color: #7b7b7b;
 }
@@ -176,7 +145,7 @@ body {
 
 <div class="overlay">
 
-  <!-- BACKGROUND PRUHY -->
+  <!-- POZADÍ -->
   <div class="menu-bg"></div>
   <div class="icons-bg"></div>
 
@@ -200,32 +169,11 @@ body {
 
   <!-- BOTTOM -->
   <div class="footer">
-
     <div class="icons-bar">
       <div class="social-row">
-
-        <a class="facebook"><i class="fab fa-facebook-f"></i></a>
-        <a class="instagram"><i class="fab fa-instagram"></i></a>
-        <a class="threads"><i class="fab fa-threads"></i></a>
-
-        <!-- TIKTOK SVG -->
-        <a class="tiktok">
-          <svg viewBox="0 0 24 24">
-            <path fill="#25F4EE" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(-0.5,0.6)" />
-            <path fill="#FE2C55" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(0.6,-0.5)" />
-            <path fill="#FFFFFF" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" />
-          </svg>
-        </a>
-
-        <a class="twitter"><i class="fab fa-x-twitter"></i></a>
-        <a class="twitch"><i class="fab fa-twitch"></i></a>
-        <a class="youtube"><i class="fab fa-youtube"></i></a>
-        <a class="spotify"><i class="fab fa-spotify"></i></a>
-        <a class="soundcloud"><i class="fab fa-soundcloud"></i></a>
-        <a class="discord"><i class="fab fa-discord"></i></a>
-        <a class="reddit"><i class="fab fa-reddit"></i></a>
-        <a class="steam"><i class="fab fa-steam"></i></a>
-
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-x-twitter"></i>
       </div>
     </div>
 
@@ -234,7 +182,6 @@ body {
       URHEIM © 2020<br>
       Website by GitHub
     </div>
-
   </div>
 
 </div>
