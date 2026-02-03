@@ -7,26 +7,27 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+/* ================= BASE ================= */
 html, body {
   margin: 0;
   padding: 0;
 }
 
 body {
-  min-height: 220vh;
+  min-height: 240vh;
   font-family: Arial, sans-serif;
   background: #05050a url("background.png") center / cover no-repeat fixed;
   color: #e6e6e6;
   text-align: center;
 }
 
-/* ===== FIXED TOP BAR ===== */
+/* ================= TOP BAR ================= */
 .menu-bg {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 170px;
+  height: 190px;
   background: rgba(0,0,0,0.78);
   box-shadow:
     inset 0 -1px 0 rgba(255,215,0,0.45),
@@ -34,27 +35,12 @@ body {
   z-index: 10;
 }
 
-/* ===== FIXED BOTTOM BAR ===== */
-.icons-bg {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 140px;
-  background: rgba(0,0,0,0.78);
-  box-shadow:
-    inset 0 1px 0 rgba(255,215,0,0.45),
-    inset 0 2px 0 rgba(0,0,0,0.9);
-  z-index: 10;
-}
-
-/* ===== TOP CONTENT ===== */
 .top-content {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 170px;
+  height: 190px;
   z-index: 11;
   display: flex;
   flex-direction: column;
@@ -62,6 +48,7 @@ body {
   justify-content: center;
 }
 
+/* LOGO */
 .top-wrapper {
   width: 110px;
   height: 110px;
@@ -74,20 +61,16 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 52%;
-  transform: translate(2px, 4px);
-  border-radius: 50%;
+  transform: translateY(-2px);
 }
 
 /* MENU */
 .main-menu {
   display: flex;
-  justify-content: center;
   gap: 36px;
   font-family: "Times New Roman", Times, serif;
   font-size: 40px;
   font-style: italic;
-  letter-spacing: 1.5px;
 }
 
 .main-menu a {
@@ -95,69 +78,87 @@ body {
   text-decoration: none;
 }
 
-/* ===== SCROLL CONTENT ===== */
+.main-menu a:hover {
+  color: #ffd700;
+}
+
+/* ================= SCROLL CONTENT ================= */
 .scroll-content {
-  margin-top: 240px;
+  margin-top: 230px;
   margin-bottom: 220px;
   display: flex;
   justify-content: center;
 }
 
 .center-image {
-  width: 260px;
-  max-width: 70%;
+  width: 420px;
+  max-width: 80%;
 }
 
 .center-image img {
   width: 100%;
-  height: auto;
   display: block;
 }
 
-/* ===== BOTTOM CONTENT ===== */
+/* ================= BOTTOM BAR ================= */
+.icons-bg {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: rgba(0,0,0,0.78);
+  box-shadow:
+    inset 0 1px 0 rgba(255,215,0,0.45),
+    inset 0 2px 0 rgba(0,0,0,0.9);
+  z-index: 10;
+}
+
 .bottom-content {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 140px;
+  height: 150px;
   z-index: 11;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 /* ICONS */
 .social-row {
   display: flex;
-  gap: 32px;
+  gap: 26px;
   align-items: center;
 }
 
 .social-row a {
-  width: 36px;   /* ⬅️ zvětšeno */
-  height: 36px;  /* ⬅️ zvětšeno */
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  transition: transform 0.2s ease, opacity 0.25s ease;
+  transition: transform 0.2s ease;
 }
 
-/* FONT AWESOME IKONY */
-.social-row i {
-  font-size: 36px; /* ⬅️ zvětšeno */
+.social-row a:hover {
+  transform: scale(1.25);
 }
 
-/* TIKTOK SVG – ZŮSTÁVÁ STEJNÝ */
+.social-row i,
 .social-row svg {
-  width: 32px;
-  height: 32px;
+  width: 26px;
+  height: 26px;
 }
 
+/* TikTok – opticky dorovnaný */
 .social-row .tiktok svg {
-  transform: translateY(-1.5mm) scale(0.85);
+  width: 24px;
+  height: 24px;
+  transform: translateY(-3px);
 }
 
 /* COLORS */
@@ -173,31 +174,15 @@ body {
 .reddit i { color: #C00613; }
 .steam i { color: #1386B7; }
 
-/* FOOTER */
+/* FOOTER TEXT */
 .header {
-  margin-top: 10px;
+  margin-top: 8px;
   font-size: 15px;
   letter-spacing: 2px;
-  cursor: pointer;
-}
-
-.slide {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.4s ease;
-}
-
-.slide.open {
-  max-height: 80px;
-}
-
-.email-line a {
-  color: #ffffff;
-  text-decoration: none;
 }
 
 .bottom-text {
-  margin-top: 8px;
+  margin-top: 6px;
   font-size: 13px;
   color: #7b7b7b;
 }
@@ -206,16 +191,18 @@ body {
 
 <body>
 
+<!-- FIXED BARS -->
 <div class="menu-bg"></div>
 <div class="icons-bg"></div>
 
+<!-- TOP -->
 <div class="top-content">
   <div class="top-wrapper">
     <img src="circle1.png" alt="URHEIM">
   </div>
 
   <nav class="main-menu">
-    <a href="https://imurheimofficial.github.io/URHEIM">Home</a>
+    <a href="#">Home</a>
     <a href="#">Bio</a>
     <a href="#">Music</a>
     <a href="#">Video</a>
@@ -224,21 +211,23 @@ body {
   </nav>
 </div>
 
+<!-- SCROLLING CENTER -->
 <div class="scroll-content">
   <div class="center-image">
     <img src="center-image.png" alt="">
   </div>
 </div>
 
+<!-- BOTTOM -->
 <div class="bottom-content">
   <div class="social-row">
 
-    <a class="facebook" data-sound="FacebookSound.mp3" href="https://facebook.com/imurheimofficiaI"><i class="fab fa-facebook-f"></i></a>
-    <a class="instagram" data-sound="InstagramSound.mp3" href="https://instagram.com/imurheimofficial"><i class="fab fa-instagram"></i></a>
-    <a class="threads" data-sound="ThreadsSound.mp3" href="https://threads.com/@imurheimofficial"><i class="fab fa-threads"></i></a>
+    <a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a>
+    <a class="instagram" href="#"><i class="fab fa-instagram"></i></a>
+    <a class="threads" href="#"><i class="fab fa-threads"></i></a>
 
-    <!-- TIKTOK (NEZMĚNĚN) -->
-    <a class="tiktok" data-sound="TikTokSound.mp3" href="https://tiktok.com/@imurheimofficial">
+    <!-- TIKTOK SVG -->
+    <a class="tiktok" href="#">
       <svg viewBox="0 0 24 24">
         <path fill="#25F4EE" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(-0.5,0.6)" />
         <path fill="#FE2C55" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(0.6,-0.5)" />
@@ -246,75 +235,23 @@ body {
       </svg>
     </a>
 
-    <a class="twitter" data-sound="TwitterSound.mp3" href="https://twitter.com/imurheimoficial"><i class="fab fa-x-twitter"></i></a>
-    <a class="twitch" data-sound="TwitchSound.mp3" href="https://twitch.tv/imurheimofficial"><i class="fab fa-twitch"></i></a>
-    <a class="youtube" data-sound="YoutubeSound.mp3" href="https://youtube.com/@imurheimofficial"><i class="fab fa-youtube"></i></a>
-    <a class="spotify" data-sound="SpotifySound.mp3" href="https://open.spotify.com/user/31ot36lsksowpipo5ovni3tjtokq"><i class="fab fa-spotify"></i></a>
-    <a class="soundcloud" data-sound="SoundcloudSound.mp3" href="https://soundcloud.com/imurheimofficial"><i class="fab fa-soundcloud"></i></a>
-    <a class="discord" data-sound="DiscordSound.mp3" href="https://discordapp.com/users/1204486293132808252"><i class="fab fa-discord"></i></a>
-    <a class="reddit" data-sound="RedditSound.mp3" href="https://reddit.com/user/imurheimofficial/"><i class="fab fa-reddit"></i></a>
-    <a class="steam" data-sound="SteamSound.mp3" href="https://steamcommunity.com/id/imurheimofficial/"><i class="fab fa-steam"></i></a>
+    <a class="twitter" href="#"><i class="fab fa-x-twitter"></i></a>
+    <a class="twitch" href="#"><i class="fab fa-twitch"></i></a>
+    <a class="youtube" href="#"><i class="fab fa-youtube"></i></a>
+    <a class="spotify" href="#"><i class="fab fa-spotify"></i></a>
+    <a class="soundcloud" href="#"><i class="fab fa-soundcloud"></i></a>
+    <a class="discord" href="#"><i class="fab fa-discord"></i></a>
+    <a class="reddit" href="#"><i class="fab fa-reddit"></i></a>
+    <a class="steam" href="#"><i class="fab fa-steam"></i></a>
 
   </div>
 
-  <div id="contactHeader" class="header">Contact</div>
-  <div id="contactEmail" class="slide">
-    <div class="email-line">
-      <a id="gmail" data-sound="GmailSound.mp3" href="mailto:officielurheim@gmail.com">
-        officielurheim@gmail.com
-      </a>
-    </div>
-  </div>
-
+  <div class="header">Contact</div>
   <div class="bottom-text">
     URHEIM © 2020<br>
     Website by GitHub
   </div>
 </div>
-
-<audio id="hoverSound"></audio>
-
-<script>
-const hoverSound = document.getElementById("hoverSound");
-
-document.querySelectorAll(".social-row a").forEach(link => {
-  link.addEventListener("mouseenter", () => {
-    document.querySelectorAll(".social-row a").forEach(a => {
-      if (a !== link) a.style.opacity = "0.25";
-    });
-  });
-
-  link.addEventListener("mouseleave", () => {
-    document.querySelectorAll(".social-row a").forEach(a => {
-      a.style.opacity = "1";
-    });
-  });
-
-  link.addEventListener("click", e => {
-    e.preventDefault();
-    hoverSound.src = link.dataset.sound;
-    hoverSound.currentTime = 0;
-    hoverSound.play();
-    setTimeout(() => {
-      window.open(link.href, "_blank");
-    }, 300);
-  });
-});
-
-document.getElementById("contactHeader").onclick = () => {
-  document.getElementById("contactEmail").classList.toggle("open");
-};
-
-document.getElementById("gmail").onclick = e => {
-  e.preventDefault();
-  hoverSound.src = e.target.dataset.sound;
-  hoverSound.currentTime = 0;
-  hoverSound.play();
-  setTimeout(() => {
-    window.location.href = e.target.href;
-  }, 300);
-};
-</script>
 
 </body>
 </html>
