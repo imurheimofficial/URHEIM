@@ -7,11 +7,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-/* ================= BASE ================= */
-html, body {
-  margin: 0;
-  padding: 0;
-}
+html, body { margin:0; padding:0; }
 
 body {
   min-height: 240vh;
@@ -21,12 +17,10 @@ body {
   text-align: center;
 }
 
-/* ================= TOP BAR ================= */
+/* ===== TOP BAR ===== */
 .menu-bg {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: 190px;
   background: rgba(0,0,0,0.78);
   box-shadow:
@@ -37,9 +31,7 @@ body {
 
 .top-content {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: 190px;
   z-index: 11;
   display: flex;
@@ -48,7 +40,6 @@ body {
   justify-content: center;
 }
 
-/* LOGO */
 .top-wrapper {
   width: 110px;
   height: 110px;
@@ -64,7 +55,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* MENU */
 .main-menu {
   display: flex;
   gap: 36px;
@@ -78,11 +68,9 @@ body {
   text-decoration: none;
 }
 
-.main-menu a:hover {
-  color: #ffd700;
-}
+.main-menu a:hover { color:#ffd700; }
 
-/* ================= SCROLL CONTENT ================= */
+/* ===== CENTER SCROLL ===== */
 .scroll-content {
   margin-top: 230px;
   margin-bottom: 220px;
@@ -100,12 +88,10 @@ body {
   display: block;
 }
 
-/* ================= BOTTOM BAR ================= */
+/* ===== BOTTOM BAR ===== */
 .icons-bg {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 0; left: 0; right: 0;
   height: 150px;
   background: rgba(0,0,0,0.78);
   box-shadow:
@@ -116,9 +102,7 @@ body {
 
 .bottom-content {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 0; left: 0; right: 0;
   height: 150px;
   z-index: 11;
   display: flex;
@@ -127,7 +111,7 @@ body {
   align-items: center;
 }
 
-/* ICONS */
+/* ===== ICONS ===== */
 .social-row {
   display: flex;
   gap: 26px;
@@ -141,11 +125,7 @@ body {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  transition: transform 0.2s ease;
-}
-
-.social-row a:hover {
-  transform: scale(1.25);
+  transition: transform .2s ease, opacity .25s ease;
 }
 
 .social-row i,
@@ -154,7 +134,8 @@ body {
   height: 26px;
 }
 
-/* TikTok – opticky dorovnaný */
+.social-row a:hover { transform: scale(1.25); }
+
 .social-row .tiktok svg {
   width: 24px;
   height: 24px;
@@ -162,23 +143,40 @@ body {
 }
 
 /* COLORS */
-.facebook i { color: #0062E0; }
-.instagram i { color: #E1306C; }
-.threads i { color: #ffffff; }
-.twitter i { color: #ffffff; }
-.twitch i { color: #8859E3; }
-.youtube i { color: #EB5841; }
-.spotify i { color: #38E576; }
-.soundcloud i { color: #F7861E; }
-.discord i { color: #7084D4; }
-.reddit i { color: #C00613; }
-.steam i { color: #1386B7; }
+.facebook i { color:#0062E0; }
+.instagram i { color:#E1306C; }
+.threads i { color:#fff; }
+.twitter i { color:#fff; }
+.twitch i { color:#8859E3; }
+.youtube i { color:#EB5841; }
+.spotify i { color:#38E576; }
+.soundcloud i { color:#F7861E; }
+.discord i { color:#7084D4; }
+.reddit i { color:#C00613; }
+.steam i { color:#1386B7; }
 
-/* FOOTER TEXT */
+/* FOOTER */
 .header {
   margin-top: 8px;
   font-size: 15px;
   letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.slide {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .4s ease;
+}
+
+.slide.open { max-height: 80px; }
+
+.email-line { margin-top: 8px; }
+
+.email-line a {
+  color: #fff;
+  text-decoration: none;
+  transition: transform .2s ease;
 }
 
 .bottom-text {
@@ -191,18 +189,16 @@ body {
 
 <body>
 
-<!-- FIXED BARS -->
 <div class="menu-bg"></div>
 <div class="icons-bg"></div>
 
-<!-- TOP -->
 <div class="top-content">
   <div class="top-wrapper">
     <img src="circle1.png" alt="URHEIM">
   </div>
 
   <nav class="main-menu">
-    <a href="#">Home</a>
+    <a href="https://imurheimofficial.github.io/URHEIM">Home</a>
     <a href="#">Bio</a>
     <a href="#">Music</a>
     <a href="#">Video</a>
@@ -211,23 +207,20 @@ body {
   </nav>
 </div>
 
-<!-- SCROLLING CENTER -->
 <div class="scroll-content">
   <div class="center-image">
     <img src="center-image.png" alt="">
   </div>
 </div>
 
-<!-- BOTTOM -->
 <div class="bottom-content">
   <div class="social-row">
 
-    <a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a>
-    <a class="instagram" href="#"><i class="fab fa-instagram"></i></a>
-    <a class="threads" href="#"><i class="fab fa-threads"></i></a>
+    <a class="facebook" data-sound="FacebookSound.mp3" href="https://facebook.com/imurheimofficiaI"><i class="fab fa-facebook-f"></i></a>
+    <a class="instagram" data-sound="InstagramSound.mp3" href="https://instagram.com/imurheimofficial"><i class="fab fa-instagram"></i></a>
+    <a class="threads" data-sound="ThreadsSound.mp3" href="https://threads.com/@imurheimofficial"><i class="fab fa-threads"></i></a>
 
-    <!-- TIKTOK SVG -->
-    <a class="tiktok" href="#">
+    <a class="tiktok" data-sound="TikTokSound.mp3" href="https://tiktok.com/@imurheimofficial">
       <svg viewBox="0 0 24 24">
         <path fill="#25F4EE" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(-0.5,0.6)" />
         <path fill="#FE2C55" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(0.6,-0.5)" />
@@ -235,23 +228,77 @@ body {
       </svg>
     </a>
 
-    <a class="twitter" href="#"><i class="fab fa-x-twitter"></i></a>
-    <a class="twitch" href="#"><i class="fab fa-twitch"></i></a>
-    <a class="youtube" href="#"><i class="fab fa-youtube"></i></a>
-    <a class="spotify" href="#"><i class="fab fa-spotify"></i></a>
-    <a class="soundcloud" href="#"><i class="fab fa-soundcloud"></i></a>
-    <a class="discord" href="#"><i class="fab fa-discord"></i></a>
-    <a class="reddit" href="#"><i class="fab fa-reddit"></i></a>
-    <a class="steam" href="#"><i class="fab fa-steam"></i></a>
+    <a class="twitter" data-sound="TwitterSound.mp3" href="https://twitter.com/imurheimoficial"><i class="fab fa-x-twitter"></i></a>
+    <a class="twitch" data-sound="TwitchSound.mp3" href="https://twitch.tv/imurheimofficial"><i class="fab fa-twitch"></i></a>
+    <a class="youtube" data-sound="YoutubeSound.mp3" href="https://youtube.com/@imurheimofficial"><i class="fab fa-youtube"></i></a>
+    <a class="spotify" data-sound="SpotifySound.mp3" href="https://open.spotify.com/user/31ot36lsksowpipo5ovni3tjtokq"><i class="fab fa-spotify"></i></a>
+    <a class="soundcloud" data-sound="SoundcloudSound.mp3" href="https://soundcloud.com/imurheimofficial"><i class="fab fa-soundcloud"></i></a>
+    <a class="discord" data-sound="DiscordSound.mp3" href="https://discordapp.com/users/1204486293132808252"><i class="fab fa-discord"></i></a>
+    <a class="reddit" data-sound="RedditSound.mp3" href="https://reddit.com/user/imurheimofficial/"><i class="fab fa-reddit"></i></a>
+    <a class="steam" data-sound="SteamSound.mp3" href="https://steamcommunity.com/id/imurheimofficial/"><i class="fab fa-steam"></i></a>
 
   </div>
 
-  <div class="header">Contact</div>
+  <div id="contactHeader" class="header">Contact</div>
+  <div id="contactEmail" class="slide">
+    <div class="email-line">
+      <a id="gmail" data-sound="GmailSound.mp3" href="mailto:officielurheim@gmail.com">
+        officielurheim@gmail.com
+      </a>
+    </div>
+  </div>
+
   <div class="bottom-text">
-    URHEIM © 2020<br>
-    Website by GitHub
+    URHEIM © 2020<br>Website by GitHub
   </div>
 </div>
+
+<audio id="hoverSound"></audio>
+
+<script>
+const hoverSound = document.getElementById("hoverSound");
+
+/* ICONS */
+document.querySelectorAll(".social-row a").forEach(link => {
+
+  link.addEventListener("mouseenter", () => {
+    document.querySelectorAll(".social-row a").forEach(a => {
+      if (a !== link) a.style.opacity = "0.25";
+    });
+  });
+
+  link.addEventListener("mouseleave", () => {
+    document.querySelectorAll(".social-row a").forEach(a => a.style.opacity = "1");
+  });
+
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    hoverSound.src = link.dataset.sound;
+    hoverSound.currentTime = 0;
+    hoverSound.play();
+
+    setTimeout(() => {
+      window.open(link.href, "_blank");
+    }, 300);
+  });
+});
+
+/* CONTACT */
+const contactHeader = document.getElementById("contactHeader");
+const contactEmail = document.getElementById("contactEmail");
+const gmail = document.getElementById("gmail");
+
+contactHeader.onclick = () => {
+  contactEmail.classList.toggle("open");
+};
+
+gmail.onclick = e => {
+  e.preventDefault();
+  hoverSound.src = gmail.dataset.sound;
+  hoverSound.play();
+  setTimeout(() => window.location.href = gmail.href, 300);
+};
+</script>
 
 </body>
 </html>
