@@ -15,21 +15,20 @@ body {
   text-align: center;
 }
 
-/* OVERLAY – bez horní mezery */
 .overlay {
   min-height: 100vh;
   background: rgba(0,0,0,0.6);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0; /* ⬅️ KLÍČOVÉ */
+  padding: 40px 0;
 }
 
-/* TOP LOGO */
+/* TOP */
 .top-wrapper {
   width: 150px;
   height: 150px;
-  margin: 40px auto 20px; /* ⬅️ logo má vlastní odsazení */
+  margin: 0 auto 20px;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -43,15 +42,17 @@ body {
   border-radius: 50%;
 }
 
-/* MENU BAR – OD ÚPLNÉHO VRCHU */
+/* MENU BAR – jen horní okraj protažen */
 .menu-bar {
   width: 100%;
+  margin-top: -40px;
+  margin-bottom: 70px;
   padding: 14px 0;
   background: rgba(0,0,0,0.78);
   box-shadow:
     0 10px 30px rgba(0,0,0,0.75),
-    inset 0 1px 0 rgba(255,215,0,0.12),
-    inset 0 -1px 0 rgba(0,0,0,0.9);
+    inset 0 -1px 0 rgba(255,215,0,0.12),
+    inset 0 -2px 0 rgba(0,0,0,0.9);
 }
 
 .main-menu {
@@ -73,7 +74,7 @@ body {
   color: #ffd700;
 }
 
-/* ICON BAR – DOLE */
+/* ICON BAR */
 .icons-bar {
   width: 100%;
   margin-bottom: 20px;
@@ -112,7 +113,7 @@ body {
   display: block;
 }
 
-/* ICON COLORS */
+/* COLORS */
 .facebook i { color: #0062E0; }
 .instagram i { color: #E1306C; }
 .threads i { color: #ffffff; }
@@ -134,7 +135,6 @@ body {
 
 .bottom-text {
   margin-top: 25px;
-  margin-bottom: 30px;
   font-size: 13px;
   color: #7b7b7b;
 }
@@ -145,8 +145,11 @@ body {
 
 <div class="overlay">
 
-  <!-- TOP -->
   <div>
+    <div class="top-wrapper">
+      <img src="circle1.png" alt="URHEIM">
+    </div>
+
     <div class="menu-bar">
       <nav class="main-menu">
         <a href="https://imurheimofficial.github.io/URHEIM">Home</a>
@@ -157,33 +160,20 @@ body {
         <a href="#">Contact</a>
       </nav>
     </div>
-
-    <div class="top-wrapper">
-      <img src="circle1.png" alt="URHEIM">
-    </div>
   </div>
 
-  <!-- BOTTOM -->
   <div>
-
     <div class="icons-bar">
       <div class="social-row">
-
         <a class="facebook"><i class="fab fa-facebook-f"></i></a>
         <a class="instagram"><i class="fab fa-instagram"></i></a>
         <a class="threads"><i class="fab fa-threads"></i></a>
 
-        <!-- TIKTOK SVG -->
         <a class="tiktok">
           <svg viewBox="0 0 24 24">
-            <path fill="#25F4EE"
-              d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
-              transform="translate(-0.5,0.6)" />
-            <path fill="#FE2C55"
-              d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
-              transform="translate(0.6,-0.5)" />
-            <path fill="#FFFFFF"
-              d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" />
+            <path fill="#25F4EE" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(-0.5,0.6)" />
+            <path fill="#FE2C55" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(0.6,-0.5)" />
+            <path fill="#FFFFFF" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" />
           </svg>
         </a>
 
@@ -195,7 +185,6 @@ body {
         <a class="discord"><i class="fab fa-discord"></i></a>
         <a class="reddit"><i class="fab fa-reddit"></i></a>
         <a class="steam"><i class="fab fa-steam"></i></a>
-
       </div>
     </div>
 
@@ -205,7 +194,6 @@ body {
       URHEIM © 2020<br>
       Website by GitHub
     </div>
-
   </div>
 
 </div>
