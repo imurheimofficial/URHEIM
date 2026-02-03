@@ -14,14 +14,14 @@ html, body {
 }
 
 body {
-  min-height: 200vh; /* umožní scroll pozadí */
+  min-height: 220vh; /* umožní scroll pozadí */
   font-family: Arial, sans-serif;
-  background: #05050a url("background.png") center / cover no-repeat;
+  background: #05050a url("background.png") center / cover no-repeat fixed;
   color: #e6e6e6;
   text-align: center;
 }
 
-/* ===== TOP FIXED BAR ===== */
+/* ===== FIXED TOP BAR ===== */
 .menu-bg {
   position: fixed;
   top: 0;
@@ -30,12 +30,12 @@ body {
   height: 170px;
   background: rgba(0,0,0,0.78);
   box-shadow:
-    inset 0 -1px 0 rgba(255,215,0,0.45), /* ✅ žlutá hrana DOLE */
+    inset 0 -1px 0 rgba(255,215,0,0.45),
     inset 0 -2px 0 rgba(0,0,0,0.9);
   z-index: 10;
 }
 
-/* ===== BOTTOM FIXED BAR ===== */
+/* ===== FIXED BOTTOM BAR ===== */
 .icons-bg {
   position: fixed;
   bottom: 0;
@@ -44,12 +44,12 @@ body {
   height: 140px;
   background: rgba(0,0,0,0.78);
   box-shadow:
-    inset 0 1px 0 rgba(255,215,0,0.45), /* ✅ žlutá hrana NAHOŘE */
+    inset 0 1px 0 rgba(255,215,0,0.45),
     inset 0 2px 0 rgba(0,0,0,0.9);
   z-index: 10;
 }
 
-/* ===== TOP CONTENT (CENTERED IN BAR) ===== */
+/* ===== TOP CONTENT (FIXED) ===== */
 .top-content {
   position: fixed;
   top: 0;
@@ -57,35 +57,19 @@ body {
   right: 0;
   height: 170px;
   z-index: 11;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* ✅ logo doprostřed pruhu */
+  justify-content: center;
 }
 
-/* LOGO */
+/* TOP LOGO (NEMĚNĚNO) */
 .top-wrapper {
-  width: 140px;
-  height: 140px;
+  width: 110px;
+  height: 110px;
   margin-bottom: 6px;
   border-radius: 50%;
   overflow: hidden;
-  position: relative;
-}
-
-.top-wrapper::before {
-  content: "";
-  position: absolute;
-  inset: -14px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(0,0,0,0) 55%,
-    rgba(0,0,0,0.6) 75%,
-    rgba(0,0,0,0.95) 100%
-  );
-  filter: blur(6px);
 }
 
 .top-wrapper img {
@@ -97,19 +81,19 @@ body {
   border-radius: 50%;
 }
 
-/* MENU */
+/* MENU – 2× VĚTŠÍ TEXT */
 .main-menu {
   display: flex;
   justify-content: center;
-  gap: 32px;
+  gap: 36px;
   font-family: "Times New Roman", Times, serif;
-  font-size: 22px;
+  font-size: 40px; /* ⬅️ 2× větší */
   font-style: italic;
   letter-spacing: 1.5px;
 }
 
 .main-menu a {
-  color: rgba(255,215,0,0.95);
+  color: rgba(255,215,0,0.9);
   text-decoration: none;
 }
 
@@ -117,7 +101,27 @@ body {
   color: #ffd700;
 }
 
-/* ===== BOTTOM CONTENT ===== */
+/* ===== SCROLL CONTENT (STŘED) ===== */
+.scroll-content {
+  margin-top: 220px;
+  margin-bottom: 200px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ⬇️ PROSTŘEDNÍ OBRÁZEK – ZMENŠEN */
+.center-image {
+  width: 260px;   /* ⬅️ zmenšeno */
+  max-width: 70%;
+}
+
+.center-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== BOTTOM CONTENT (FIXED) ===== */
 .bottom-content {
   position: fixed;
   bottom: 0;
@@ -125,41 +129,45 @@ body {
   right: 0;
   height: 140px;
   z-index: 11;
-
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 /* ICONS */
 .social-row {
   display: flex;
-  gap: 28px; /* ✅ ikony víc od sebe */
+  gap: 24px; /* víc místa mezi ikonami */
   align-items: center;
-  margin-bottom: 10px;
 }
 
 .social-row a {
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: scale(1.8);
+  text-decoration: none;
   transition: transform 0.2s ease;
 }
 
 .social-row a:hover {
-  transform: scale(2.05);
+  transform: scale(1.25);
 }
 
+.social-row i,
 .social-row svg {
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
 }
 
-/* ICON COLORS */
+/* TikTok SVG – OPTICKÉ ZAROVNÁNÍ */
+.social-row .tiktok svg {
+  transform: translateY(2px); /* ⬅️ SROVNÁNO */
+}
+
+/* COLORS */
 .facebook i { color: #0062E0; }
 .instagram i { color: #E1306C; }
 .threads i { color: #ffffff; }
@@ -174,11 +182,13 @@ body {
 
 /* FOOTER TEXT */
 .header {
+  margin-top: 10px;
   font-size: 15px;
   letter-spacing: 2px;
 }
 
 .bottom-text {
+  margin-top: 8px;
   font-size: 13px;
   color: #7b7b7b;
 }
@@ -187,11 +197,11 @@ body {
 
 <body>
 
-<!-- FIXED BARS -->
+<!-- FIXED BACKGROUNDS -->
 <div class="menu-bg"></div>
 <div class="icons-bg"></div>
 
-<!-- TOP CONTENT -->
+<!-- TOP FIXED CONTENT -->
 <div class="top-content">
   <div class="top-wrapper">
     <img src="circle1.png" alt="URHEIM">
@@ -207,20 +217,32 @@ body {
   </nav>
 </div>
 
-<!-- BOTTOM CONTENT -->
-<div class="bottom-content">
+<!-- SCROLLING MIDDLE -->
+<div class="scroll-content">
+  <div class="center-image">
+    <img src="center-image.png" alt="">
+  </div>
+</div>
 
+<!-- BOTTOM FIXED CONTENT -->
+<div class="bottom-content">
   <div class="social-row">
 
     <a class="facebook"><i class="fab fa-facebook-f"></i></a>
     <a class="instagram"><i class="fab fa-instagram"></i></a>
     <a class="threads"><i class="fab fa-threads"></i></a>
 
+    <!-- TIKTOK SVG -->
     <a class="tiktok">
       <svg viewBox="0 0 24 24">
-        <path fill="#25F4EE" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(-0.5,0.6)"/>
-        <path fill="#FE2C55" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(0.6,-0.5)"/>
-        <path fill="#FFFFFF" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"/>
+        <path fill="#25F4EE"
+          d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
+          transform="translate(-0.5,0.6)" />
+        <path fill="#FE2C55"
+          d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
+          transform="translate(0.6,-0.5)" />
+        <path fill="#FFFFFF"
+          d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" />
       </svg>
     </a>
 
