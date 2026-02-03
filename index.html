@@ -22,7 +22,40 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-bottom: 40px;
+}
+
+/* =========================
+   HORNÍ PRUH – BACKGROUND
+   ========================= */
+.menu-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: rgba(0,0,0,0.78);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.75),
+    inset 0 -1px 0 rgba(255,215,0,0.12),
+    inset 0 -2px 0 rgba(0,0,0,0.9);
+  z-index: 1;
+}
+
+/* =========================
+   SPODNÍ PRUH – BACKGROUND
+   ========================= */
+.icons-bg {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120px;
+  background: rgba(0,0,0,0.78);
+  box-shadow:
+    0 -10px 30px rgba(0,0,0,0.75),
+    inset 0 1px 0 rgba(255,215,0,0.12),
+    inset 0 2px 0 rgba(0,0,0,0.9);
+  z-index: 1;
 }
 
 /* TOP IMAGE */
@@ -32,6 +65,8 @@ body {
   margin: 40px auto 20px;
   border-radius: 50%;
   overflow: hidden;
+  position: relative;
+  z-index: 2;
 }
 
 .top-wrapper img {
@@ -41,26 +76,6 @@ body {
   object-position: center 52%;
   transform: translate(2px, 6px);
   border-radius: 50%;
-}
-
-/* =========================
-   HORNÍ PRUH – BACKGROUND
-   ========================= */
-.menu-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  height: 120px; /* ⬅️ TLOUŠŤKA PRUHU */
-  background: rgba(0,0,0,0.78);
-
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.75),
-    inset 0 -1px 0 rgba(255,215,0,0.12), /* ŽLUTÁ LINKA DOLE */
-    inset 0 -2px 0 rgba(0,0,0,0.9);
-
-  z-index: 1;
 }
 
 /* MENU */
@@ -89,19 +104,11 @@ body {
   color: #ffd700;
 }
 
-/* =========================
-   SPODNÍ PRUH – BEZE ZMĚN
-   ========================= */
+/* ICON BAR */
 .icons-bar {
-  width: 100%;
-  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
   padding: 14px 0;
-  background: rgba(0,0,0,0.78);
-
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.75),
-    inset 0 1px 0 rgba(255,215,0,0.12),
-    inset 0 -1px 0 rgba(0,0,0,0.9);
 }
 
 .social-row {
@@ -145,6 +152,12 @@ body {
 .steam i { color: #1386B7; }
 
 /* FOOTER */
+.footer {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 40px;
+}
+
 .header {
   margin-top: 10px;
   font-size: 15px;
@@ -163,8 +176,9 @@ body {
 
 <div class="overlay">
 
-  <!-- HORNÍ POZADÍ PRUHU -->
+  <!-- BACKGROUND PRUHY -->
   <div class="menu-bg"></div>
+  <div class="icons-bg"></div>
 
   <!-- TOP -->
   <div>
@@ -185,7 +199,8 @@ body {
   </div>
 
   <!-- BOTTOM -->
-  <div>
+  <div class="footer">
+
     <div class="icons-bar">
       <div class="social-row">
 
@@ -215,11 +230,11 @@ body {
     </div>
 
     <div class="header">Contact</div>
-
     <div class="bottom-text">
       URHEIM © 2020<br>
       Website by GitHub
     </div>
+
   </div>
 
 </div>
