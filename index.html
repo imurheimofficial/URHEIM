@@ -14,7 +14,7 @@ html, body {
 }
 
 body {
-  min-height: 200vh; /* umožní scroll */
+  min-height: 200vh; /* umožní scroll pozadí */
   font-family: Arial, sans-serif;
   background: #05050a url("background.png") center / cover no-repeat;
   color: #e6e6e6;
@@ -30,7 +30,7 @@ body {
   height: 170px;
   background: rgba(0,0,0,0.78);
   box-shadow:
-    inset 0 -1px 0 rgba(255,215,0,0.35),
+    inset 0 -1px 0 rgba(255,215,0,0.45), /* ✅ žlutá hrana DOLE */
     inset 0 -2px 0 rgba(0,0,0,0.9);
   z-index: 10;
 }
@@ -44,25 +44,31 @@ body {
   height: 140px;
   background: rgba(0,0,0,0.78);
   box-shadow:
-    inset 0 1px 0 rgba(255,215,0,0.35),
+    inset 0 1px 0 rgba(255,215,0,0.45), /* ✅ žlutá hrana NAHOŘE */
     inset 0 2px 0 rgba(0,0,0,0.9);
   z-index: 10;
 }
 
-/* ===== TOP CONTENT ===== */
+/* ===== TOP CONTENT (CENTERED IN BAR) ===== */
 .top-content {
   position: fixed;
-  top: 18px; /* ⬅️ LOGO + MENU posunuto o cca 2 mm nahoru */
+  top: 0;
   left: 0;
   right: 0;
+  height: 170px;
   z-index: 11;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* ✅ logo doprostřed pruhu */
 }
 
 /* LOGO */
 .top-wrapper {
-  width: 150px;
-  height: 150px;
-  margin: 0 auto 6px;
+  width: 140px;
+  height: 140px;
+  margin-bottom: 6px;
   border-radius: 50%;
   overflow: hidden;
   position: relative;
@@ -80,12 +86,9 @@ body {
     rgba(0,0,0,0.95) 100%
   );
   filter: blur(6px);
-  z-index: 0;
 }
 
 .top-wrapper img {
-  position: relative;
-  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -94,19 +97,19 @@ body {
   border-radius: 50%;
 }
 
-/* ===== MENU ===== */
+/* MENU */
 .main-menu {
   display: flex;
   justify-content: center;
   gap: 32px;
   font-family: "Times New Roman", Times, serif;
-  font-size: 22px; /* ⬅️ zvětšeno z 20px */
+  font-size: 22px;
   font-style: italic;
   letter-spacing: 1.5px;
 }
 
 .main-menu a {
-  color: rgba(255,215,0,0.9);
+  color: rgba(255,215,0,0.95);
   text-decoration: none;
 }
 
@@ -117,23 +120,24 @@ body {
 /* ===== BOTTOM CONTENT ===== */
 .bottom-content {
   position: fixed;
-  bottom: 18px;
+  bottom: 0;
   left: 0;
   right: 0;
+  height: 140px;
   z-index: 11;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ICONS */
-.icons-bar {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 8px;
-}
-
 .social-row {
   display: flex;
-  gap: 18px;
+  gap: 28px; /* ✅ ikony víc od sebe */
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .social-row a {
@@ -142,8 +146,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
-  transform: scale(1.8); /* ⬅️ IKONY zvětšeny 1.8× */
+  transform: scale(1.8);
   transition: transform 0.2s ease;
 }
 
@@ -176,7 +179,6 @@ body {
 }
 
 .bottom-text {
-  margin-top: 6px;
   font-size: 13px;
   color: #7b7b7b;
 }
@@ -207,31 +209,30 @@ body {
 
 <!-- BOTTOM CONTENT -->
 <div class="bottom-content">
-  <div class="icons-bar">
-    <div class="social-row">
 
-      <a class="facebook"><i class="fab fa-facebook-f"></i></a>
-      <a class="instagram"><i class="fab fa-instagram"></i></a>
-      <a class="threads"><i class="fab fa-threads"></i></a>
+  <div class="social-row">
 
-      <a class="tiktok">
-        <svg viewBox="0 0 24 24">
-          <path fill="#25F4EE" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(-0.5,0.6)"/>
-          <path fill="#FE2C55" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(0.6,-0.5)"/>
-          <path fill="#FFFFFF" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"/>
-        </svg>
-      </a>
+    <a class="facebook"><i class="fab fa-facebook-f"></i></a>
+    <a class="instagram"><i class="fab fa-instagram"></i></a>
+    <a class="threads"><i class="fab fa-threads"></i></a>
 
-      <a class="twitter"><i class="fab fa-x-twitter"></i></a>
-      <a class="twitch"><i class="fab fa-twitch"></i></a>
-      <a class="youtube"><i class="fab fa-youtube"></i></a>
-      <a class="spotify"><i class="fab fa-spotify"></i></a>
-      <a class="soundcloud"><i class="fab fa-soundcloud"></i></a>
-      <a class="discord"><i class="fab fa-discord"></i></a>
-      <a class="reddit"><i class="fab fa-reddit"></i></a>
-      <a class="steam"><i class="fab fa-steam"></i></a>
+    <a class="tiktok">
+      <svg viewBox="0 0 24 24">
+        <path fill="#25F4EE" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(-0.5,0.6)"/>
+        <path fill="#FE2C55" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(0.6,-0.5)"/>
+        <path fill="#FFFFFF" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"/>
+      </svg>
+    </a>
 
-    </div>
+    <a class="twitter"><i class="fab fa-x-twitter"></i></a>
+    <a class="twitch"><i class="fab fa-twitch"></i></a>
+    <a class="youtube"><i class="fab fa-youtube"></i></a>
+    <a class="spotify"><i class="fab fa-spotify"></i></a>
+    <a class="soundcloud"><i class="fab fa-soundcloud"></i></a>
+    <a class="discord"><i class="fab fa-discord"></i></a>
+    <a class="reddit"><i class="fab fa-reddit"></i></a>
+    <a class="steam"><i class="fab fa-steam"></i></a>
+
   </div>
 
   <div class="header">Contact</div>
