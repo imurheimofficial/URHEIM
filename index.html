@@ -15,20 +15,21 @@ body {
   text-align: center;
 }
 
+/* OVERLAY */
 .overlay {
   min-height: 100vh;
   background: rgba(0,0,0,0.6);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 40px 0;
+  padding-bottom: 40px;
 }
 
 /* TOP IMAGE */
 .top-wrapper {
   width: 150px;
   height: 150px;
-  margin: 0 auto 20px;
+  margin: 40px auto 20px;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -42,27 +43,33 @@ body {
   border-radius: 50%;
 }
 
-/* MENU BAR – POZICE */
-.menu-bar {
-  width: 100%;
-  margin-top: -40px;   /* dotáhne k hornímu okraji */
-  margin-bottom: 70px;
-}
-
-/* MENU BAR – HMOTA / POZADÍ */
+/* =========================
+   HORNÍ PRUH – BACKGROUND
+   ========================= */
 .menu-bg {
-  background: rgba(0,0,0,0.78);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 
-  padding-top: 90px;     /* ⬅️ HMOTA NAHOŘE */
-  padding-bottom: 14px;  /* ⬅️ HRANA TĚSNĚ POD TEXTEM */
+  height: 120px; /* ⬅️ TLOUŠŤKA PRUHU */
+  background: rgba(0,0,0,0.78);
 
   box-shadow:
     0 10px 30px rgba(0,0,0,0.75),
-    inset 0 1px 0 rgba(255,215,0,0.12),   /* žlutá linka */
-    inset 0 -1px 0 rgba(0,0,0,0.9);
+    inset 0 -1px 0 rgba(255,215,0,0.12), /* ŽLUTÁ LINKA DOLE */
+    inset 0 -2px 0 rgba(0,0,0,0.9);
+
+  z-index: 1;
 }
 
 /* MENU */
+.menu-bar {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 70px;
+}
+
 .main-menu {
   display: flex;
   justify-content: center;
@@ -82,7 +89,9 @@ body {
   color: #ffd700;
 }
 
-/* ICON BAR – BEZE ZMĚN */
+/* =========================
+   SPODNÍ PRUH – BEZE ZMĚN
+   ========================= */
 .icons-bar {
   width: 100%;
   margin-bottom: 20px;
@@ -109,7 +118,7 @@ body {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  transition: transform 0.2s ease, opacity 0.25s ease;
+  transition: transform 0.2s ease;
 }
 
 .social-row a:hover {
@@ -122,7 +131,7 @@ body {
   display: block;
 }
 
-/* COLORS */
+/* ICON COLORS */
 .facebook i { color: #0062E0; }
 .instagram i { color: #E1306C; }
 .threads i { color: #ffffff; }
@@ -154,6 +163,9 @@ body {
 
 <div class="overlay">
 
+  <!-- HORNÍ POZADÍ PRUHU -->
+  <div class="menu-bg"></div>
+
   <!-- TOP -->
   <div>
     <div class="top-wrapper">
@@ -161,22 +173,19 @@ body {
     </div>
 
     <div class="menu-bar">
-      <div class="menu-bg">
-        <nav class="main-menu">
-          <a href="https://imurheimofficial.github.io/URHEIM">Home</a>
-          <a href="#">Bio</a>
-          <a href="#">Music</a>
-          <a href="#">Video</a>
-          <a href="#">Colabs</a>
-          <a href="#">Contact</a>
-        </nav>
-      </div>
+      <nav class="main-menu">
+        <a href="#">Home</a>
+        <a href="#">Bio</a>
+        <a href="#">Music</a>
+        <a href="#">Video</a>
+        <a href="#">Colabs</a>
+        <a href="#">Contact</a>
+      </nav>
     </div>
   </div>
 
   <!-- BOTTOM -->
   <div>
-
     <div class="icons-bar">
       <div class="social-row">
 
@@ -184,16 +193,12 @@ body {
         <a class="instagram"><i class="fab fa-instagram"></i></a>
         <a class="threads"><i class="fab fa-threads"></i></a>
 
+        <!-- TIKTOK SVG -->
         <a class="tiktok">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path fill="#25F4EE"
-              d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
-              transform="translate(-0.5,0.6)" />
-            <path fill="#FE2C55"
-              d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
-              transform="translate(0.6,-0.5)" />
-            <path fill="#FFFFFF"
-              d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" />
+          <svg viewBox="0 0 24 24">
+            <path fill="#25F4EE" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(-0.5,0.6)" />
+            <path fill="#FE2C55" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(0.6,-0.5)" />
+            <path fill="#FFFFFF" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" />
           </svg>
         </a>
 
@@ -215,7 +220,6 @@ body {
       URHEIM © 2020<br>
       Website by GitHub
     </div>
-
   </div>
 
 </div>
