@@ -15,20 +15,21 @@ body {
   text-align: center;
 }
 
+/* OVERLAY – bez horní mezery */
 .overlay {
   min-height: 100vh;
   background: rgba(0,0,0,0.6);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 40px 0;
+  padding: 0; /* ⬅️ KLÍČOVÉ */
 }
 
-/* TOP */
+/* TOP LOGO */
 .top-wrapper {
   width: 150px;
   height: 150px;
-  margin: 0 auto 20px;
+  margin: 40px auto 20px; /* ⬅️ logo má vlastní odsazení */
   border-radius: 50%;
   overflow: hidden;
 }
@@ -42,10 +43,9 @@ body {
   border-radius: 50%;
 }
 
-/* MENU BAR */
+/* MENU BAR – OD ÚPLNÉHO VRCHU */
 .menu-bar {
   width: 100%;
-  margin-bottom: 70px;
   padding: 14px 0;
   background: rgba(0,0,0,0.78);
   box-shadow:
@@ -73,7 +73,7 @@ body {
   color: #ffd700;
 }
 
-/* ICON BAR – STEJNÝ PRUH */
+/* ICON BAR – DOLE */
 .icons-bar {
   width: 100%;
   margin-bottom: 20px;
@@ -112,7 +112,7 @@ body {
   display: block;
 }
 
-/* COLORS */
+/* ICON COLORS */
 .facebook i { color: #0062E0; }
 .instagram i { color: #E1306C; }
 .threads i { color: #ffffff; }
@@ -125,16 +125,16 @@ body {
 .reddit i { color: #C00613; }
 .steam i { color: #1386B7; }
 
-/* CONTACT */
+/* FOOTER */
 .header {
   margin-top: 10px;
   font-size: 15px;
   letter-spacing: 2px;
-  cursor: pointer;
 }
 
 .bottom-text {
   margin-top: 25px;
+  margin-bottom: 30px;
   font-size: 13px;
   color: #7b7b7b;
 }
@@ -147,10 +147,6 @@ body {
 
   <!-- TOP -->
   <div>
-    <div class="top-wrapper">
-      <img src="circle1.png" alt="URHEIM">
-    </div>
-
     <div class="menu-bar">
       <nav class="main-menu">
         <a href="https://imurheimofficial.github.io/URHEIM">Home</a>
@@ -160,6 +156,10 @@ body {
         <a href="#">Colabs</a>
         <a href="#">Contact</a>
       </nav>
+    </div>
+
+    <div class="top-wrapper">
+      <img src="circle1.png" alt="URHEIM">
     </div>
   </div>
 
@@ -173,9 +173,9 @@ body {
         <a class="instagram"><i class="fab fa-instagram"></i></a>
         <a class="threads"><i class="fab fa-threads"></i></a>
 
-        <!-- ✅ TIKTOK – FINÁLNÍ SVG -->
+        <!-- TIKTOK SVG -->
         <a class="tiktok">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
             <path fill="#25F4EE"
               d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
               transform="translate(-0.5,0.6)" />
