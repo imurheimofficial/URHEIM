@@ -45,12 +45,23 @@ body {
   border-radius: 50%;
 }
 
+/* MENU BAR (NOVÉ) */
+.menu-bar {
+  display: inline-block;
+  margin: 0 auto 80px;
+  padding: 10px 28px;
+  background: rgba(0,0,0,0.55); /* lehce průsvitná černá */
+  border-radius: 999px;
+  box-shadow:
+    0 0 20px rgba(0,0,0,0.6),
+    inset 0 0 12px rgba(255,255,255,0.03);
+}
+
 /* MENU */
 .main-menu {
   display: flex;
   justify-content: center;
   gap: 32px;
-  margin: 12px 0 80px; /* víc místa pod menu */
   font-family: "Times New Roman", Times, serif;
   font-size: 20px;
   font-style: italic;
@@ -69,7 +80,7 @@ body {
 /* SOCIAL */
 .social-outline {
   display: inline-block;
-  margin-bottom: 25px; /* odstup od Contact */
+  margin-bottom: 25px;
   padding: 12px 22px;
   border-radius: 999px;
   background:
@@ -158,20 +169,23 @@ body {
       <img src="circle1.png" alt="URHEIM">
     </div>
 
-    <nav class="main-menu">
-      <a href="https://imurheimofficial.github.io/URHEIM">Home</a>
-      <a href="#">Bio</a>
-      <a href="#">Music</a>
-      <a href="#">Video</a>
-      <a href="#">Colabs</a>
-      <a href="#">Contact</a>
-    </nav>
+    <!-- MENU BAR -->
+    <div class="menu-bar">
+      <nav class="main-menu">
+        <a href="https://imurheimofficial.github.io/URHEIM">Home</a>
+        <a href="#">Bio</a>
+        <a href="#">Music</a>
+        <a href="#">Video</a>
+        <a href="#">Colabs</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
   </div>
 
   <!-- BOTTOM CONTENT -->
   <div>
 
-    <!-- SOCIAL ICONS (PŘESUNUTO SEM) -->
+    <!-- SOCIAL ICONS -->
     <div class="social-outline">
       <div class="social-row">
         <a class="facebook" data-sound="FacebookSound.mp3" href="https://facebook.com/imurheimofficiaI"><i class="fab fa-facebook-f"></i></a>
