@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <title>URHEIM</title>
 
+<!-- MEDIEVAL FONT -->
+<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -21,7 +24,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 40px 0; /* ⬅️ bez bočního paddingu */
+  padding: 40px 0;
 }
 
 /* TOP */
@@ -50,7 +53,7 @@ body {
   width: 100%;
   margin: 0 0 80px;
   padding: 14px 0;
-  background: rgba(0,0,0,0.78); /* ⬅️ výraznější černá */
+  background: rgba(0,0,0,0.78);
   box-shadow:
     0 10px 30px rgba(0,0,0,0.75),
     inset 0 1px 0 rgba(255,215,0,0.12),
@@ -62,10 +65,9 @@ body {
   display: flex;
   justify-content: center;
   gap: 32px;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 20px;
-  font-style: italic;
-  letter-spacing: 1.5px;
+  font-family: 'MedievalSharp', serif;
+  font-size: 21px;
+  letter-spacing: 2px;
 }
 
 .main-menu a {
@@ -107,7 +109,7 @@ body {
   transition: transform 0.2s ease, opacity 0.25s ease;
 }
 
-/* COLORS */
+/* ICON COLORS */
 .facebook i { color: #0062E0; }
 .instagram i { color: #E1306C; }
 .threads i { color: #ffffff; }
@@ -148,7 +150,6 @@ body {
   color: #ffffff;
   text-decoration: none;
   display: inline-block;
-  transition: transform 0.2s ease;
 }
 
 .bottom-text {
@@ -169,7 +170,7 @@ body {
       <img src="circle1.png" alt="URHEIM">
     </div>
 
-    <!-- FULL WIDTH MENU -->
+    <!-- MENU -->
     <div class="menu-bar">
       <nav class="main-menu">
         <a href="https://imurheimofficial.github.io/URHEIM">Home</a>
