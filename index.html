@@ -151,9 +151,9 @@ body {
   height: 32px;
 }
 
-/* TIKTOK – FINÁLNÍ POSUN */
+/* ✅ TIKTOK – FINÁLNÍ JEMNÉ DOROVNÁNÍ */
 .social-row .tiktok svg {
-  transform: translateY(-3mm) scale(0.85);
+  transform: translateY(-1.5mm) scale(0.85);
 }
 
 /* COLORS */
@@ -272,7 +272,6 @@ body {
 <script>
 const hoverSound = document.getElementById("hoverSound");
 
-/* ICONS */
 document.querySelectorAll(".social-row a").forEach(link => {
 
   link.addEventListener("mouseenter", () => {
@@ -303,7 +302,6 @@ document.querySelectorAll(".social-row a").forEach(link => {
   });
 });
 
-/* CONTACT */
 document.getElementById("contactHeader").onclick = () => {
   document.getElementById("contactEmail").classList.toggle("open");
 };
