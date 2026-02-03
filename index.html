@@ -49,10 +49,10 @@ body {
   z-index: 10;
 }
 
-/* ===== TOP CONTENT (FIXED) ===== */
+/* ===== TOP CONTENT ===== */
 .top-content {
   position: fixed;
-  top: 20px;
+  top: 18px; /* ⬅️ LOGO + MENU posunuto o cca 2 mm nahoru */
   left: 0;
   right: 0;
   z-index: 11;
@@ -62,13 +62,12 @@ body {
 .top-wrapper {
   width: 150px;
   height: 150px;
-  margin: 0 auto 10px;
+  margin: 0 auto 6px;
   border-radius: 50%;
   overflow: hidden;
   position: relative;
 }
 
-/* jemné zakulacení obrysu */
 .top-wrapper::before {
   content: "";
   position: absolute;
@@ -95,13 +94,13 @@ body {
   border-radius: 50%;
 }
 
-/* MENU */
+/* ===== MENU ===== */
 .main-menu {
   display: flex;
   justify-content: center;
   gap: 32px;
   font-family: "Times New Roman", Times, serif;
-  font-size: 20px;
+  font-size: 22px; /* ⬅️ zvětšeno z 20px */
   font-style: italic;
   letter-spacing: 1.5px;
 }
@@ -115,10 +114,10 @@ body {
   color: #ffd700;
 }
 
-/* ===== BOTTOM CONTENT (FIXED) ===== */
+/* ===== BOTTOM CONTENT ===== */
 .bottom-content {
   position: fixed;
-  bottom: 20px;
+  bottom: 18px;
   left: 0;
   right: 0;
   z-index: 11;
@@ -144,11 +143,12 @@ body {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  transform: scale(1.8); /* ⬅️ IKONY zvětšeny 1.8× */
   transition: transform 0.2s ease;
 }
 
 .social-row a:hover {
-  transform: scale(1.25);
+  transform: scale(2.05);
 }
 
 .social-row svg {
@@ -189,7 +189,7 @@ body {
 <div class="menu-bg"></div>
 <div class="icons-bg"></div>
 
-<!-- FIXED TOP CONTENT -->
+<!-- TOP CONTENT -->
 <div class="top-content">
   <div class="top-wrapper">
     <img src="circle1.png" alt="URHEIM">
@@ -205,7 +205,7 @@ body {
   </nav>
 </div>
 
-<!-- FIXED BOTTOM CONTENT -->
+<!-- BOTTOM CONTENT -->
 <div class="bottom-content">
   <div class="icons-bar">
     <div class="social-row">
@@ -214,7 +214,6 @@ body {
       <a class="instagram"><i class="fab fa-instagram"></i></a>
       <a class="threads"><i class="fab fa-threads"></i></a>
 
-      <!-- TIKTOK SVG -->
       <a class="tiktok">
         <svg viewBox="0 0 24 24">
           <path fill="#25F4EE" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(-0.5,0.6)"/>
