@@ -43,33 +43,20 @@ body {
 }
 
 /* =========================
-   MENU BAR (KOPIE SPODNÍHO)
+   MENU BAR – STEJNÝ JAKO DOLE
    ========================= */
 .menu-bar {
   width: 100%;
+  margin-top: -40px;        /* 🔑 natáhne k hornímu okraji */
   margin-bottom: 70px;
   padding: 14px 0;
   background: rgba(0,0,0,0.78);
-  position: relative;
-
   box-shadow:
     0 10px 30px rgba(0,0,0,0.75),
-    inset 0 -1px 0 rgba(255,215,0,0.12); /* ✅ žlutá linka DOLE */
+    inset 0 -1px 0 rgba(255,215,0,0.12), /* ✅ žlutá linka DOLE */
+    inset 0 -2px 0 rgba(0,0,0,0.9);
 }
 
-/* černá plocha pokračuje NAHORU */
-.menu-bar::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -2000px;
-  bottom: 0;
-  background: rgba(0,0,0,0.78);
-  z-index: -1;
-}
-
-/* MENU */
 .main-menu {
   display: flex;
   justify-content: center;
@@ -90,7 +77,7 @@ body {
 }
 
 /* =========================
-   ICON BAR (BEZE ZMĚNY)
+   ICON BAR – REFERENČNÍ
    ========================= */
 .icons-bar {
   width: 100%;
@@ -99,7 +86,8 @@ body {
   background: rgba(0,0,0,0.78);
   box-shadow:
     0 10px 30px rgba(0,0,0,0.75),
-    inset 0 -1px 0 rgba(255,215,0,0.12);
+    inset 0 1px 0 rgba(255,215,0,0.12),
+    inset 0 -1px 0 rgba(0,0,0,0.9);
 }
 
 .social-row {
@@ -142,12 +130,11 @@ body {
 .reddit i { color: #C00613; }
 .steam i { color: #1386B7; }
 
-/* CONTACT */
+/* FOOTER */
 .header {
   margin-top: 10px;
   font-size: 15px;
   letter-spacing: 2px;
-  cursor: pointer;
 }
 
 .bottom-text {
@@ -162,7 +149,6 @@ body {
 
 <div class="overlay">
 
-  <!-- TOP -->
   <div>
     <div class="top-wrapper">
       <img src="circle1.png" alt="URHEIM">
@@ -180,9 +166,7 @@ body {
     </div>
   </div>
 
-  <!-- BOTTOM -->
   <div>
-
     <div class="icons-bar">
       <div class="social-row">
 
@@ -190,17 +174,12 @@ body {
         <a class="instagram"><i class="fab fa-instagram"></i></a>
         <a class="threads"><i class="fab fa-threads"></i></a>
 
-        <!-- TIKTOK SVG -->
+        <!-- TikTok SVG -->
         <a class="tiktok">
           <svg viewBox="0 0 24 24">
-            <path fill="#25F4EE"
-              d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
-              transform="translate(-0.5,0.6)" />
-            <path fill="#FE2C55"
-              d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
-              transform="translate(0.6,-0.5)" />
-            <path fill="#FFFFFF"
-              d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" />
+            <path fill="#25F4EE" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(-0.5,0.6)" />
+            <path fill="#FE2C55" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(0.6,-0.5)" />
+            <path fill="#FFFFFF" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" />
           </svg>
         </a>
 
@@ -222,7 +201,6 @@ body {
       URHEIM © 2020<br>
       Website by GitHub
     </div>
-
   </div>
 
 </div>
