@@ -131,7 +131,7 @@ body {
   align-items: center;
 }
 
-/* ICONS */
+/* ===== ICONS ===== */
 .social-row {
   display: flex;
   gap: 30px;
@@ -152,16 +152,17 @@ body {
   transform: scale(1.25);
 }
 
+/* jednotný vizuální box */
 .social-row i,
 .social-row svg {
   width: 32px;
   height: 32px;
+  display: block;
 }
 
-/* ✅ TikTok – ZMENŠEN + ZAROVNAN */
+/* ✅ TIKTOK – FINÁLNÍ MASTER ALIGN */
 .social-row .tiktok svg {
-  transform: translateY(-3px) scale(0.9);
-  transform-origin: center;
+  transform: scale(0.85);   /* ⬅️ jemně menší */
 }
 
 /* COLORS */
@@ -177,7 +178,7 @@ body {
 .reddit i { color: #C00613; }
 .steam i { color: #1386B7; }
 
-/* FOOTER TEXT */
+/* FOOTER */
 .header {
   margin-top: 10px;
   font-size: 15px;
