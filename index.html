@@ -131,13 +131,13 @@ body {
 /* ICONS */
 .social-row {
   display: flex;
-  gap: 30px;
+  gap: 32px;
   align-items: center;
 }
 
 .social-row a {
-  width: 32px;
-  height: 32px;
+  width: 36px;   /* ⬅️ zvětšeno */
+  height: 36px;  /* ⬅️ zvětšeno */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -145,13 +145,17 @@ body {
   transition: transform 0.2s ease, opacity 0.25s ease;
 }
 
-.social-row i,
+/* FONT AWESOME IKONY */
+.social-row i {
+  font-size: 36px; /* ⬅️ zvětšeno */
+}
+
+/* TIKTOK SVG – ZŮSTÁVÁ STEJNÝ */
 .social-row svg {
   width: 32px;
   height: 32px;
 }
 
-/* ✅ TIKTOK – FINÁLNÍ JEMNÉ DOROVNÁNÍ */
 .social-row .tiktok svg {
   transform: translateY(-1.5mm) scale(0.85);
 }
@@ -233,6 +237,7 @@ body {
     <a class="instagram" data-sound="InstagramSound.mp3" href="https://instagram.com/imurheimofficial"><i class="fab fa-instagram"></i></a>
     <a class="threads" data-sound="ThreadsSound.mp3" href="https://threads.com/@imurheimofficial"><i class="fab fa-threads"></i></a>
 
+    <!-- TIKTOK (NEZMĚNĚN) -->
     <a class="tiktok" data-sound="TikTokSound.mp3" href="https://tiktok.com/@imurheimofficial">
       <svg viewBox="0 0 24 24">
         <path fill="#25F4EE" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(-0.5,0.6)" />
@@ -273,7 +278,6 @@ body {
 const hoverSound = document.getElementById("hoverSound");
 
 document.querySelectorAll(".social-row a").forEach(link => {
-
   link.addEventListener("mouseenter", () => {
     document.querySelectorAll(".social-row a").forEach(a => {
       if (a !== link) a.style.opacity = "0.25";
@@ -291,13 +295,8 @@ document.querySelectorAll(".social-row a").forEach(link => {
     hoverSound.src = link.dataset.sound;
     hoverSound.currentTime = 0;
     hoverSound.play();
-
-    link.style.transform = "scale(1.25)";
-
     setTimeout(() => {
       window.open(link.href, "_blank");
-      link.style.transform = "scale(1)";
-      document.querySelectorAll(".social-row a").forEach(a => a.style.opacity = "1");
     }, 300);
   });
 });
