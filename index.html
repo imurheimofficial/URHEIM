@@ -42,17 +42,30 @@ body {
   border-radius: 50%;
 }
 
-/* MENU BAR – jen horní okraj protažen */
+/* MENU BAR */
 .menu-bar {
   width: 100%;
-  margin-top: -40px;
   margin-bottom: 70px;
   padding: 14px 0;
   background: rgba(0,0,0,0.78);
+  position: relative; /* ✅ nutné pro ::before */
+
   box-shadow:
     0 10px 30px rgba(0,0,0,0.75),
-    inset 0 -1px 0 rgba(255,215,0,0.12),
-    inset 0 -2px 0 rgba(0,0,0,0.9);
+    inset 0 1px 0 rgba(255,215,0,0.12),
+    inset 0 -1px 0 rgba(0,0,0,0.9);
+}
+
+/* ✅ TADY je ten trik: černá plocha jde NAHORU až k okraji */
+.menu-bar::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -2000px;                 /* natáhne se vysoko nahoru */
+  bottom: 0;                    /* končí přesně na spodku menu-bar */
+  background: rgba(0,0,0,0.78); /* stejná černá */
+  z-index: -1;                  /* je za obsahem */
 }
 
 .main-menu {
@@ -74,7 +87,7 @@ body {
   color: #ffd700;
 }
 
-/* ICON BAR */
+/* ICON BAR – STEJNÝ PRUH */
 .icons-bar {
   width: 100%;
   margin-bottom: 20px;
@@ -126,11 +139,12 @@ body {
 .reddit i { color: #C00613; }
 .steam i { color: #1386B7; }
 
-/* FOOTER */
+/* CONTACT */
 .header {
   margin-top: 10px;
   font-size: 15px;
   letter-spacing: 2px;
+  cursor: pointer;
 }
 
 .bottom-text {
@@ -145,6 +159,7 @@ body {
 
 <div class="overlay">
 
+  <!-- TOP -->
   <div>
     <div class="top-wrapper">
       <img src="circle1.png" alt="URHEIM">
@@ -162,18 +177,27 @@ body {
     </div>
   </div>
 
+  <!-- BOTTOM -->
   <div>
+
     <div class="icons-bar">
       <div class="social-row">
+
         <a class="facebook"><i class="fab fa-facebook-f"></i></a>
         <a class="instagram"><i class="fab fa-instagram"></i></a>
         <a class="threads"><i class="fab fa-threads"></i></a>
 
+        <!-- TIKTOK SVG -->
         <a class="tiktok">
-          <svg viewBox="0 0 24 24">
-            <path fill="#25F4EE" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(-0.5,0.6)" />
-            <path fill="#FE2C55" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(0.6,-0.5)" />
-            <path fill="#FFFFFF" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" />
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#25F4EE"
+              d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
+              transform="translate(-0.5,0.6)" />
+            <path fill="#FE2C55"
+              d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
+              transform="translate(0.6,-0.5)" />
+            <path fill="#FFFFFF"
+              d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" />
           </svg>
         </a>
 
@@ -185,6 +209,7 @@ body {
         <a class="discord"><i class="fab fa-discord"></i></a>
         <a class="reddit"><i class="fab fa-reddit"></i></a>
         <a class="steam"><i class="fab fa-steam"></i></a>
+
       </div>
     </div>
 
@@ -194,6 +219,7 @@ body {
       URHEIM © 2020<br>
       Website by GitHub
     </div>
+
   </div>
 
 </div>
