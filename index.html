@@ -42,18 +42,18 @@ body {
   border-radius: 50%;
 }
 
-/* MENU BAR – KOPIE SPODNÍHO PRUHU + POSUN NAHORU */
+/* MENU BAR – ŠIROKÝ (VYSOKÝ) PRUH */
 .menu-bar {
   width: 100%;
-  margin-top: -80px;      /* ⬅️ dotáhne k hornímu okraji */
+  margin-top: -40px;
   margin-bottom: 70px;
-  padding: 14px 0;
+  padding: 32px 0;          /* ⬅️ ZVĚTŠENÁ VÝŠKA */
 
   background: rgba(0,0,0,0.78);
 
   box-shadow:
     0 10px 30px rgba(0,0,0,0.75),
-    inset 0 1px 0 rgba(255,215,0,0.12),   /* žlutá linka NAHOŘE */
+    inset 0 1px 0 rgba(255,215,0,0.12),
     inset 0 -1px 0 rgba(0,0,0,0.9);
 }
 
@@ -76,12 +76,11 @@ body {
   color: #ffd700;
 }
 
-/* ICON BAR – PŮVODNÍ, NEDOTČENÝ */
+/* ICON BAR – BEZE ZMĚN */
 .icons-bar {
   width: 100%;
   margin-bottom: 20px;
   padding: 14px 0;
-
   background: rgba(0,0,0,0.78);
 
   box-shadow:
@@ -149,7 +148,6 @@ body {
 
 <div class="overlay">
 
-  <!-- TOP -->
   <div>
     <div class="top-wrapper">
       <img src="circle1.png" alt="URHEIM">
@@ -167,26 +165,19 @@ body {
     </div>
   </div>
 
-  <!-- BOTTOM -->
   <div>
 
     <div class="icons-bar">
       <div class="social-row">
-
         <a class="facebook"><i class="fab fa-facebook-f"></i></a>
         <a class="instagram"><i class="fab fa-instagram"></i></a>
         <a class="threads"><i class="fab fa-threads"></i></a>
 
         <a class="tiktok">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path fill="#25F4EE"
-              d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
-              transform="translate(-0.5,0.6)" />
-            <path fill="#FE2C55"
-              d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
-              transform="translate(0.6,-0.5)" />
-            <path fill="#FFFFFF"
-              d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" />
+          <svg viewBox="0 0 24 24">
+            <path fill="#25F4EE" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(-0.5,0.6)" />
+            <path fill="#FE2C55" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(0.6,-0.5)" />
+            <path fill="#FFFFFF" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" />
           </svg>
         </a>
 
@@ -198,7 +189,6 @@ body {
         <a class="discord"><i class="fab fa-discord"></i></a>
         <a class="reddit"><i class="fab fa-reddit"></i></a>
         <a class="steam"><i class="fab fa-steam"></i></a>
-
       </div>
     </div>
 
