@@ -42,10 +42,10 @@ body {
   border-radius: 50%;
 }
 
-/* ===== MENU BAR – TVŮJ OBLÍBENÝ PRUH ===== */
+/* MENU BAR */
 .menu-bar {
   width: 100%;
-  margin: 0 0 70px;
+  margin-bottom: 70px;
   padding: 14px 0;
   background: rgba(0,0,0,0.78);
   box-shadow:
@@ -73,7 +73,7 @@ body {
   color: #ffd700;
 }
 
-/* ===== ICON BAR – STEJNÝ PRUH, BEZ ŽLUTÉHO PODKLADU ===== */
+/* ICON BAR – STEJNÝ PRUH */
 .icons-bar {
   width: 100%;
   margin-bottom: 20px;
@@ -89,12 +89,27 @@ body {
   display: flex;
   gap: 18px;
   justify-content: center;
+  align-items: center;
 }
 
 .social-row a {
-  font-size: 22px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   transition: transform 0.2s ease, opacity 0.25s ease;
+}
+
+.social-row a:hover {
+  transform: scale(1.25);
+}
+
+.social-row svg {
+  width: 22px;
+  height: 22px;
+  display: block;
 }
 
 /* COLORS */
@@ -116,26 +131,6 @@ body {
   font-size: 15px;
   letter-spacing: 2px;
   cursor: pointer;
-}
-
-.slide {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.4s ease;
-}
-
-.slide.open {
-  max-height: 80px;
-}
-
-.email-line {
-  margin-top: 10px;
-  font-size: 14px;
-}
-
-.email-line a {
-  color: #ffffff;
-  text-decoration: none;
 }
 
 .bottom-text {
@@ -173,9 +168,25 @@ body {
 
     <div class="icons-bar">
       <div class="social-row">
+
         <a class="facebook"><i class="fab fa-facebook-f"></i></a>
         <a class="instagram"><i class="fab fa-instagram"></i></a>
         <a class="threads"><i class="fab fa-threads"></i></a>
+
+        <!-- ✅ TIKTOK – FINÁLNÍ SVG -->
+        <a class="tiktok">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#25F4EE"
+              d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
+              transform="translate(-0.5,0.6)" />
+            <path fill="#FE2C55"
+              d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
+              transform="translate(0.6,-0.5)" />
+            <path fill="#FFFFFF"
+              d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" />
+          </svg>
+        </a>
+
         <a class="twitter"><i class="fab fa-x-twitter"></i></a>
         <a class="twitch"><i class="fab fa-twitch"></i></a>
         <a class="youtube"><i class="fab fa-youtube"></i></a>
@@ -184,17 +195,11 @@ body {
         <a class="discord"><i class="fab fa-discord"></i></a>
         <a class="reddit"><i class="fab fa-reddit"></i></a>
         <a class="steam"><i class="fab fa-steam"></i></a>
+
       </div>
     </div>
 
-    <div id="contactHeader" class="header">Contact</div>
-    <div id="contactEmail" class="slide">
-      <div class="email-line">
-        <a href="mailto:officielurheim@gmail.com">
-          officielurheim@gmail.com
-        </a>
-      </div>
-    </div>
+    <div class="header">Contact</div>
 
     <div class="bottom-text">
       URHEIM © 2020<br>
@@ -204,24 +209,6 @@ body {
   </div>
 
 </div>
-
-<script>
-document.querySelectorAll(".social-row a").forEach(link => {
-
-  link.addEventListener("mouseenter", () => {
-    document.querySelectorAll(".social-row a").forEach(a => {
-      if (a !== link) a.style.opacity = "0.25";
-    });
-  });
-
-  link.addEventListener("mouseleave", () => {
-    document.querySelectorAll(".social-row a").forEach(a => {
-      a.style.opacity = "1";
-    });
-  });
-
-});
-</script>
 
 </body>
 </html>
