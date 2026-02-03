@@ -42,18 +42,19 @@ body {
   border-radius: 50%;
 }
 
-/* MENU BAR – STEJNÝ JAKO SPODNÍ, JEN DOTAŽENÝ NAHORU */
+/* MENU BAR – KOPIE SPODNÍHO PRUHU + POSUN NAHORU */
 .menu-bar {
   width: 100%;
-  margin-top: -40px;          /* ⬅️ KLÍČ: dotáhne horní hranu k okraji */
+  margin-top: -40px;      /* ⬅️ dotáhne k hornímu okraji */
   margin-bottom: 70px;
   padding: 14px 0;
+
   background: rgba(0,0,0,0.78);
 
   box-shadow:
     0 10px 30px rgba(0,0,0,0.75),
-    inset 0 -1px 0 rgba(255,215,0,0.12), /* žlutá linka DOLE */
-    inset 0 -2px 0 rgba(0,0,0,0.9);
+    inset 0 1px 0 rgba(255,215,0,0.12),   /* žlutá linka NAHOŘE */
+    inset 0 -1px 0 rgba(0,0,0,0.9);
 }
 
 .main-menu {
@@ -75,11 +76,12 @@ body {
   color: #ffd700;
 }
 
-/* ICON BAR – BEZE ZMĚN */
+/* ICON BAR – PŮVODNÍ, NEDOTČENÝ */
 .icons-bar {
   width: 100%;
   margin-bottom: 20px;
   padding: 14px 0;
+
   background: rgba(0,0,0,0.78);
 
   box-shadow:
@@ -175,7 +177,6 @@ body {
         <a class="instagram"><i class="fab fa-instagram"></i></a>
         <a class="threads"><i class="fab fa-threads"></i></a>
 
-        <!-- TIKTOK SVG -->
         <a class="tiktok">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path fill="#25F4EE"
