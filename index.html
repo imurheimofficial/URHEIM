@@ -11,12 +11,15 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+
   background: #05050a url("background.png") center / cover no-repeat;
+  background-attachment: fixed; /* ✅ TADY JE TO KOUZLO */
+
   color: #e6e6e6;
   text-align: center;
 }
 
-/* ===== FIXED TOP BAR ===== */
+/* ===== TOP BACKGROUND BAR ===== */
 .menu-bg {
   position: fixed;
   top: 0;
@@ -27,20 +30,41 @@ body {
   box-shadow:
     inset 0 -1px 0 rgba(255,215,0,0.35),
     inset 0 -2px 0 rgba(0,0,0,0.9);
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  z-index: 1;
 }
 
-/* TOP IMAGE */
+/* ===== BOTTOM BACKGROUND BAR ===== */
+.icons-bg {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 130px;
+  background: rgba(0,0,0,0.78);
+  box-shadow:
+    inset 0 1px 0 rgba(255,215,0,0.35),
+    inset 0 2px 0 rgba(0,0,0,0.9);
+  z-index: 1;
+}
+
+/* ===== CONTENT LAYER ===== */
+.overlay {
+  position: relative;
+  min-height: 200vh; /* ⬅️ aby bylo co scrollovat */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 0 120px;
+}
+
+/* ===== TOP ===== */
 .top-wrapper {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px;
   border-radius: 50%;
   overflow: hidden;
-  margin-bottom: 8px;
 }
 
 .top-wrapper img {
@@ -52,10 +76,12 @@ body {
   border-radius: 50%;
 }
 
-/* MENU */
+/* ===== MENU ===== */
 .main-menu {
   display: flex;
+  justify-content: center;
   gap: 32px;
+  margin-top: 10px;
   font-family: "Times New Roman", Times, serif;
   font-size: 20px;
   font-style: italic;
@@ -71,29 +97,17 @@ body {
   color: #ffd700;
 }
 
-/* ===== FIXED BOTTOM BAR ===== */
-.icons-bg {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 150px;
-  background: rgba(0,0,0,0.78);
-  box-shadow:
-    inset 0 1px 0 rgba(255,215,0,0.35),
-    inset 0 2px 0 rgba(0,0,0,0.9);
-  z-index: 10;
+/* ===== ICONS ===== */
+.icons-bar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
-/* ICONS */
 .social-row {
   display: flex;
   gap: 18px;
-  margin-bottom: 10px;
+  align-items: center;
 }
 
 .social-row a {
@@ -113,9 +127,10 @@ body {
 .social-row svg {
   width: 22px;
   height: 22px;
+  display: block;
 }
 
-/* ICON COLORS */
+/* ===== ICON COLORS ===== */
 .facebook i { color: #0062E0; }
 .instagram i { color: #E1306C; }
 .threads i { color: #ffffff; }
@@ -128,86 +143,82 @@ body {
 .reddit i { color: #C00613; }
 .steam i { color: #1386B7; }
 
-/* FOOTER TEXT */
+/* ===== FOOTER ===== */
 .header {
   font-size: 15px;
   letter-spacing: 2px;
-  margin-bottom: 6px;
 }
 
 .bottom-text {
+  margin-top: 18px;
   font-size: 13px;
   color: #7b7b7b;
-}
-
-/* ===== SCROLL CONTENT SPACE ===== */
-.content {
-  padding-top: 190px;   /* místo pro horní pruh */
-  padding-bottom: 170px;/* místo pro spodní pruh */
 }
 </style>
 </head>
 
 <body>
 
-<!-- FIXED TOP -->
-<div class="menu-bg">
-  <div class="top-wrapper">
-    <img src="circle1.png" alt="URHEIM">
-  </div>
-  <nav class="main-menu">
-    <a href="#">Home</a>
-    <a href="#">Bio</a>
-    <a href="#">Music</a>
-    <a href="#">Video</a>
-    <a href="#">Colabs</a>
-    <a href="#">Contact</a>
-  </nav>
-</div>
+<!-- FIXED BACKGROUNDS -->
+<div class="menu-bg"></div>
+<div class="icons-bg"></div>
 
-<!-- SCROLL CONTENT -->
-<div class="content">
-  <!-- tady může být cokoliv dalšího, sekce, texty, obrázky -->
-</div>
+<!-- CONTENT -->
+<div class="overlay">
 
-<!-- FIXED BOTTOM -->
-<div class="icons-bg">
-  <div class="social-row">
+  <!-- TOP -->
+  <div>
+    <div class="top-wrapper">
+      <img src="circle1.png" alt="URHEIM">
+    </div>
 
-    <a class="facebook"><i class="fab fa-facebook-f"></i></a>
-    <a class="instagram"><i class="fab fa-instagram"></i></a>
-    <a class="threads"><i class="fab fa-threads"></i></a>
-
-    <!-- TIKTOK SVG -->
-    <a class="tiktok">
-      <svg viewBox="0 0 24 24">
-        <path fill="#25F4EE"
-          d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
-          transform="translate(-0.5,0.6)" />
-        <path fill="#FE2C55"
-          d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
-          transform="translate(0.6,-0.5)" />
-        <path fill="#FFFFFF"
-          d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" />
-      </svg>
-    </a>
-
-    <a class="twitter"><i class="fab fa-x-twitter"></i></a>
-    <a class="twitch"><i class="fab fa-twitch"></i></a>
-    <a class="youtube"><i class="fab fa-youtube"></i></a>
-    <a class="spotify"><i class="fab fa-spotify"></i></a>
-    <a class="soundcloud"><i class="fab fa-soundcloud"></i></a>
-    <a class="discord"><i class="fab fa-discord"></i></a>
-    <a class="reddit"><i class="fab fa-reddit"></i></a>
-    <a class="steam"><i class="fab fa-steam"></i></a>
-
+    <nav class="main-menu">
+      <a href="#">Home</a>
+      <a href="#">Bio</a>
+      <a href="#">Music</a>
+      <a href="#">Video</a>
+      <a href="#">Colabs</a>
+      <a href="#">Contact</a>
+    </nav>
   </div>
 
-  <div class="header">Contact</div>
-  <div class="bottom-text">
-    URHEIM © 2020<br>
-    Website by GitHub
+  <!-- BOTTOM -->
+  <div>
+    <div class="icons-bar">
+      <div class="social-row">
+
+        <a class="facebook"><i class="fab fa-facebook-f"></i></a>
+        <a class="instagram"><i class="fab fa-instagram"></i></a>
+        <a class="threads"><i class="fab fa-threads"></i></a>
+
+        <!-- TIKTOK SVG -->
+        <a class="tiktok">
+          <svg viewBox="0 0 24 24">
+            <path fill="#25F4EE" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(-0.5,0.6)" />
+            <path fill="#FE2C55" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(0.6,-0.5)" />
+            <path fill="#FFFFFF" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" />
+          </svg>
+        </a>
+
+        <a class="twitter"><i class="fab fa-x-twitter"></i></a>
+        <a class="twitch"><i class="fab fa-twitch"></i></a>
+        <a class="youtube"><i class="fab fa-youtube"></i></a>
+        <a class="spotify"><i class="fab fa-spotify"></i></a>
+        <a class="soundcloud"><i class="fab fa-soundcloud"></i></a>
+        <a class="discord"><i class="fab fa-discord"></i></a>
+        <a class="reddit"><i class="fab fa-reddit"></i></a>
+        <a class="steam"><i class="fab fa-steam"></i></a>
+
+      </div>
+    </div>
+
+    <div class="header">Contact</div>
+    <div class="bottom-text">
+      URHEIM © 2020<br>
+      Website by GitHub
+    </div>
   </div>
+
 </div>
 
 </body>
