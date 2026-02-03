@@ -50,7 +50,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 32px;
-  margin: 12px 0 36px;
+  margin: 12px 0 80px; /* víc místa pod menu */
   font-family: "Times New Roman", Times, serif;
   font-size: 20px;
   font-style: italic;
@@ -60,16 +60,16 @@ body {
 .main-menu a {
   color: rgba(255,215,0,0.85);
   text-decoration: none;
-  transition: color 0.25s ease;
 }
 
 .main-menu a:hover {
   color: #ffd700;
 }
 
-/* SOCIAL OUTLINE */
+/* SOCIAL */
 .social-outline {
   display: inline-block;
+  margin-bottom: 25px; /* odstup od Contact */
   padding: 12px 22px;
   border-radius: 999px;
   background:
@@ -84,7 +84,6 @@ body {
     inset 0 0 12px rgba(255,255,255,0.04);
 }
 
-/* ICON ROW */
 .social-row {
   display: flex;
   gap: 18px;
@@ -102,7 +101,7 @@ body {
 .instagram i { color: #E1306C; }
 .threads i { color: #ffffff; }
 .tiktok i { color: #000000; }
-.twitter i { color: #ffffff; } /* ⬅️ X v bílé */
+.twitter i { color: #ffffff; }
 .twitch i { color: #8859E3; }
 .youtube i { color: #EB5841; }
 .spotify i { color: #38E576; }
@@ -113,7 +112,7 @@ body {
 
 /* CONTACT */
 .header {
-  margin-top: 30px;
+  margin-top: 10px;
   font-size: 15px;
   letter-spacing: 2px;
   cursor: pointer;
@@ -142,7 +141,7 @@ body {
 }
 
 .bottom-text {
-  margin-top: 30px;
+  margin-top: 25px;
   font-size: 13px;
   color: #7b7b7b;
 }
@@ -153,12 +152,12 @@ body {
 
 <div class="overlay">
 
+  <!-- TOP CONTENT -->
   <div>
     <div class="top-wrapper">
       <img src="circle1.png" alt="URHEIM">
     </div>
 
-    <!-- MENU -->
     <nav class="main-menu">
       <a href="https://imurheimofficial.github.io/URHEIM">Home</a>
       <a href="#">Bio</a>
@@ -167,8 +166,12 @@ body {
       <a href="#">Colabs</a>
       <a href="#">Contact</a>
     </nav>
+  </div>
 
-    <!-- SOCIAL ICONS -->
+  <!-- BOTTOM CONTENT -->
+  <div>
+
+    <!-- SOCIAL ICONS (PŘESUNUTO SEM) -->
     <div class="social-outline">
       <div class="social-row">
         <a class="facebook" data-sound="FacebookSound.mp3" href="https://facebook.com/imurheimofficiaI"><i class="fab fa-facebook-f"></i></a>
@@ -185,10 +188,8 @@ body {
         <a class="steam" data-sound="SteamSound.mp3" href="https://steamcommunity.com/id/imurheimofficial/"><i class="fab fa-steam"></i></a>
       </div>
     </div>
-  </div>
 
-  <!-- CONTACT -->
-  <div>
+    <!-- CONTACT -->
     <div id="contactHeader" class="header">Contact</div>
     <div id="contactEmail" class="slide">
       <div class="email-line">
@@ -202,6 +203,7 @@ body {
       URHEIM © 2020<br>
       Website by GitHub
     </div>
+
   </div>
 
   <audio id="hoverSound"></audio>
