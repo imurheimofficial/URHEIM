@@ -8,61 +8,113 @@
 
 <style>
 /* ===== BASE ===== */
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
 
+  /* ✅ Pozadí – při scrollu se bude hýbat */
   background: #05050a url("background.png") center / cover no-repeat;
-  background-attachment: fixed; /* ✅ TADY JE TO KOUZLO */
+  background-attachment: fixed;
 
   color: #e6e6e6;
   text-align: center;
 }
 
-/* ===== TOP BACKGROUND BAR ===== */
+/* ===== FIXED TOP BAR (pozadí pruhu) ===== */
 .menu-bg {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+
+  /* výška pruhu */
   height: 170px;
+
   background: rgba(0,0,0,0.78);
   box-shadow:
     inset 0 -1px 0 rgba(255,215,0,0.35),
     inset 0 -2px 0 rgba(0,0,0,0.9);
-  z-index: 1;
+
+  z-index: 10;
 }
 
-/* ===== BOTTOM BACKGROUND BAR ===== */
+/* ===== FIXED BOTTOM BAR (pozadí pruhu) ===== */
 .icons-bg {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
+
   height: 130px;
+
   background: rgba(0,0,0,0.78);
   box-shadow:
     inset 0 1px 0 rgba(255,215,0,0.35),
     inset 0 2px 0 rgba(0,0,0,0.9);
-  z-index: 1;
+
+  z-index: 10;
 }
 
-/* ===== CONTENT LAYER ===== */
-.overlay {
-  position: relative;
-  min-height: 200vh; /* ⬅️ aby bylo co scrollovat */
-  z-index: 2;
+/* ===== FIXED TOP CONTENT (logo + menu) ===== */
+.top-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 170px;
+  z-index: 20;
+
+  /* aby šlo kliknout na odkazy (neblokovalo pozadí) */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 40px 0 120px;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none; /* default: vypnuto */
 }
 
-/* ===== TOP ===== */
+.top-fixed * {
+  pointer-events: auto; /* ale děti klikatelné */
+}
+
+/* ===== FIXED BOTTOM CONTENT (ikony + text) ===== */
+.bottom-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  height: 130px;
+  z-index: 20;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+}
+
+.bottom-fixed * {
+  pointer-events: auto;
+}
+
+/* ===== SCROLL SPACER (jen kvůli scrollu) ===== */
+/* Tohle je jediná věc, co se “scrolluje” – je to prázdný prostor. */
+.scroll-spacer {
+  height: 220vh; /* scroll 2x dolů – uprav dle chuti */
+}
+
+/* ===== TOP IMAGE ===== */
 .top-wrapper {
   width: 150px;
   height: 150px;
-  margin: 0 auto 20px;
+  margin: 10px auto 8px;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -81,7 +133,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 32px;
-  margin-top: 10px;
+
   font-family: "Times New Roman", Times, serif;
   font-size: 20px;
   font-style: italic;
@@ -116,6 +168,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+
   text-decoration: none;
   transition: transform 0.2s ease;
 }
@@ -130,7 +183,7 @@ body {
   display: block;
 }
 
-/* ===== ICON COLORS ===== */
+/* ICON COLORS */
 .facebook i { color: #0062E0; }
 .instagram i { color: #E1306C; }
 .threads i { color: #ffffff; }
@@ -143,14 +196,14 @@ body {
 .reddit i { color: #C00613; }
 .steam i { color: #1386B7; }
 
-/* ===== FOOTER ===== */
+/* ===== FOOTER TEXT ===== */
 .header {
   font-size: 15px;
   letter-spacing: 2px;
 }
 
 .bottom-text {
-  margin-top: 18px;
+  margin-top: 8px;
   font-size: 13px;
   color: #7b7b7b;
 }
@@ -159,67 +212,70 @@ body {
 
 <body>
 
-<!-- FIXED BACKGROUNDS -->
+<!-- FIXED BACKGROUND BARS -->
 <div class="menu-bg"></div>
 <div class="icons-bg"></div>
 
-<!-- CONTENT -->
-<div class="overlay">
-
-  <!-- TOP -->
-  <div>
-    <div class="top-wrapper">
-      <img src="circle1.png" alt="URHEIM">
-    </div>
-
-    <nav class="main-menu">
-      <a href="#">Home</a>
-      <a href="#">Bio</a>
-      <a href="#">Music</a>
-      <a href="#">Video</a>
-      <a href="#">Colabs</a>
-      <a href="#">Contact</a>
-    </nav>
+<!-- FIXED TOP CONTENT -->
+<div class="top-fixed">
+  <div class="top-wrapper">
+    <img src="circle1.png" alt="URHEIM">
   </div>
 
-  <!-- BOTTOM -->
-  <div>
-    <div class="icons-bar">
-      <div class="social-row">
-
-        <a class="facebook"><i class="fab fa-facebook-f"></i></a>
-        <a class="instagram"><i class="fab fa-instagram"></i></a>
-        <a class="threads"><i class="fab fa-threads"></i></a>
-
-        <!-- TIKTOK SVG -->
-        <a class="tiktok">
-          <svg viewBox="0 0 24 24">
-            <path fill="#25F4EE" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(-0.5,0.6)" />
-            <path fill="#FE2C55" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(0.6,-0.5)" />
-            <path fill="#FFFFFF" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" />
-          </svg>
-        </a>
-
-        <a class="twitter"><i class="fab fa-x-twitter"></i></a>
-        <a class="twitch"><i class="fab fa-twitch"></i></a>
-        <a class="youtube"><i class="fab fa-youtube"></i></a>
-        <a class="spotify"><i class="fab fa-spotify"></i></a>
-        <a class="soundcloud"><i class="fab fa-soundcloud"></i></a>
-        <a class="discord"><i class="fab fa-discord"></i></a>
-        <a class="reddit"><i class="fab fa-reddit"></i></a>
-        <a class="steam"><i class="fab fa-steam"></i></a>
-
-      </div>
-    </div>
-
-    <div class="header">Contact</div>
-    <div class="bottom-text">
-      URHEIM © 2020<br>
-      Website by GitHub
-    </div>
-  </div>
-
+  <nav class="main-menu">
+    <a href="#">Home</a>
+    <a href="#">Bio</a>
+    <a href="#">Music</a>
+    <a href="#">Video</a>
+    <a href="#">Colabs</a>
+    <a href="#">Contact</a>
+  </nav>
 </div>
+
+<!-- FIXED BOTTOM CONTENT -->
+<div class="bottom-fixed">
+  <div class="icons-bar">
+    <div class="social-row">
+
+      <a class="facebook"><i class="fab fa-facebook-f"></i></a>
+      <a class="instagram"><i class="fab fa-instagram"></i></a>
+      <a class="threads"><i class="fab fa-threads"></i></a>
+
+      <!-- TIKTOK SVG -->
+      <a class="tiktok">
+        <svg viewBox="0 0 24 24">
+          <path fill="#25F4EE"
+            d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
+            transform="translate(-0.5,0.6)" />
+          <path fill="#FE2C55"
+            d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z"
+            transform="translate(0.6,-0.5)" />
+          <path fill="#FFFFFF"
+            d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" />
+        </svg>
+      </a>
+
+      <a class="twitter"><i class="fab fa-x-twitter"></i></a>
+      <a class="twitch"><i class="fab fa-twitch"></i></a>
+      <a class="youtube"><i class="fab fa-youtube"></i></a>
+      <a class="spotify"><i class="fab fa-spotify"></i></a>
+      <a class="soundcloud"><i class="fab fa-soundcloud"></i></a>
+      <a class="discord"><i class="fab fa-discord"></i></a>
+      <a class="reddit"><i class="fab fa-reddit"></i></a>
+      <a class="steam"><i class="fab fa-steam"></i></a>
+
+    </div>
+  </div>
+
+  <div class="header">Contact</div>
+  <div class="bottom-text">
+    URHEIM © 2020<br>
+    Website by GitHub
+  </div>
+</div>
+
+<!-- ✅ JEN PRÁZDNÝ SCROLL PROSTOR -->
+<div class="scroll-spacer"></div>
 
 </body>
 </html>
