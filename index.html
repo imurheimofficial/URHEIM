@@ -156,7 +156,21 @@ body {
 .steam i { color:#1386B7; }
 
 /* ADDED */
-.chest i { color:#ffd700; }
+.chest i {
+  color: #2a2a2a; /* tmavě šedá výplň */
+
+  /* zlaté hrany / obrys */
+  text-shadow:
+    -1px -1px 0 #ffd700,
+     1px -1px 0 #ffd700,
+    -1px  1px 0 #ffd700,
+     1px  1px 0 #ffd700,
+     0px -1px 0 #ffd700,
+     0px  1px 0 #ffd700,
+    -1px  0px 0 #ffd700,
+     1px  0px 0 #ffd700;
+}
+
 .umbrella img { display:block; }
 
 /* FOOTER */
@@ -242,12 +256,12 @@ body {
 
     <a class="steam" data-sound="SteamSound.mp3" href="https://steamcommunity.com/id/imurheimofficial/"><i class="fab fa-steam"></i></a>
 
-    <!-- ADDED: CHEST (visible) -->
+    <!-- CHEST -->
     <a class="chest" data-sound="selectchest.mp3" href="#">
       <i class="fa-solid fa-box-open"></i>
     </a>
 
-    <!-- ADDED: UMBRELLA (hidden until password ok) -->
+    <!-- UMBRELLA (hidden until password ok) -->
     <a class="umbrella" data-sound="ResidentEvil.mp3"
        href="https://residentevilmodding.boards.net/thread/18201/urheims-wesker-boss-mod?page=1&scrollTo=152613"
        style="display:none;">
@@ -290,7 +304,7 @@ document.querySelectorAll(".social-row a").forEach(link => {
 
   link.addEventListener("click", e => {
 
-    /* ADDED: chest + umbrella řešíme zvlášť */
+    /* chest + umbrella řešíme zvlášť */
     if (link.classList.contains("chest") || link.classList.contains("umbrella")) {
       return;
     }
@@ -307,14 +321,14 @@ document.querySelectorAll(".social-row a").forEach(link => {
 });
 
 
-/* ADDED: CHEST + PASSWORD + UMBRELLA */
+/* CHEST + PASSWORD + UMBRELLA */
 const chest = document.querySelector(".chest");
 const umbrella = document.querySelector(".umbrella");
 
 chest.addEventListener("click", e => {
   e.preventDefault();
 
-  /* 1) selectchest.mp3 */
+  /* selectchest.mp3 */
   hoverSound.src = chest.dataset.sound;
   hoverSound.currentTime = 0;
   hoverSound.play();
@@ -324,12 +338,12 @@ chest.addEventListener("click", e => {
 
     if (pass === "residentevil") {
 
-      /* 2) TreasureOpened.mp3 */
+      /* TreasureOpened.mp3 */
       hoverSound.src = "TreasureOpened.mp3";
       hoverSound.currentTime = 0;
       hoverSound.play();
 
-      /* 3) show umbrella */
+      /* show umbrella */
       umbrella.style.display = "flex";
 
     } else {
