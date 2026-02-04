@@ -155,6 +155,10 @@ body {
 .reddit i { color:#C00613; }
 .steam i { color:#1386B7; }
 
+/* ADDED */
+.chest i { color:#ffd700; }
+.umbrella img { display:block; }
+
 /* FOOTER */
 .header {
   margin-top: 8px;
@@ -235,7 +239,18 @@ body {
     <a class="soundcloud" data-sound="SoundcloudSound.mp3" href="https://soundcloud.com/imurheimofficial"><i class="fab fa-soundcloud"></i></a>
     <a class="discord" data-sound="DiscordSound.mp3" href="https://discordapp.com/users/1204486293132808252"><i class="fab fa-discord"></i></a>
     <a class="reddit" data-sound="RedditSound.mp3" href="https://reddit.com/user/imurheimofficial/"><i class="fab fa-reddit"></i></a>
+
     <a class="steam" data-sound="SteamSound.mp3" href="https://steamcommunity.com/id/imurheimofficial/"><i class="fab fa-steam"></i></a>
+
+    <!-- ADDED: CHEST -->
+    <a class="chest" data-sound="selectchest.mp3" href="#"><i class="fa-solid fa-treasure-chest"></i></a>
+
+    <!-- ADDED: UMBRELLA (hidden until password ok) -->
+    <a class="umbrella" data-sound="ResidentEvil.mp3"
+       href="https://residentevilmodding.boards.net/thread/18201/urheims-wesker-boss-mod?page=1&scrollTo=152613"
+       style="display:none;">
+      <img src="umbrella.ico" alt="Umbrella" style="width:26px;height:26px;">
+    </a>
 
   </div>
 
@@ -272,6 +287,12 @@ document.querySelectorAll(".social-row a").forEach(link => {
   });
 
   link.addEventListener("click", e => {
+
+    /* ADDED: chest + umbrella řešíme zvlášť */
+    if (link.classList.contains("chest") || link.classList.contains("umbrella")) {
+      return;
+    }
+
     e.preventDefault();
     hoverSound.src = link.dataset.sound;
     hoverSound.currentTime = 0;
@@ -282,6 +303,53 @@ document.querySelectorAll(".social-row a").forEach(link => {
     }, 300);
   });
 });
+
+
+/* ADDED: CHEST + PASSWORD + UMBRELLA */
+const chest = document.querySelector(".chest");
+const umbrella = document.querySelector(".umbrella");
+
+chest.addEventListener("click", e => {
+  e.preventDefault();
+
+  /* 1) selectchest.mp3 */
+  hoverSound.src = chest.dataset.sound;
+  hoverSound.currentTime = 0;
+  hoverSound.play();
+
+  setTimeout(() => {
+    const pass = prompt("Enter password:");
+
+    if (pass === "residentevil") {
+
+      /* 2) TreasureOpened.mp3 */
+      hoverSound.src = "TreasureOpened.mp3";
+      hoverSound.currentTime = 0;
+      hoverSound.play();
+
+      /* 3) show umbrella */
+      umbrella.style.display = "flex";
+
+    } else {
+      alert("Wrong password.");
+    }
+
+  }, 300);
+});
+
+umbrella.addEventListener("click", e => {
+  e.preventDefault();
+
+  /* ResidentEvil.mp3 */
+  hoverSound.src = umbrella.dataset.sound;
+  hoverSound.currentTime = 0;
+  hoverSound.play();
+
+  setTimeout(() => {
+    window.open(umbrella.href, "_blank");
+  }, 300);
+});
+
 
 /* CONTACT */
 const contactHeader = document.getElementById("contactHeader");
