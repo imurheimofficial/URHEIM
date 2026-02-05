@@ -173,15 +173,14 @@ body {
   height: 26px;
   display: block;
 
-  /* bylo: -1mm
-     teď: posun dolů o 0.2mm => -0.8mm */
+  /* posun dolů o 0.2mm */
   transform: translateY(-0.8mm);
 }
 
 /* UMBRELLA pod truhlou */
 .umbrella {
   position: absolute;
-  top: 32px; /* pod řádek ikon */
+  top: 32px;
   left: 50%;
   transform: translateX(-50%);
   width: 28px;
@@ -190,12 +189,12 @@ body {
   align-items: center;
 }
 
-/* Umbrella velikost:
-   - výška -0.5mm
-   - šířka +1mm (změna)
+/* Umbrella:
+   - výška zůstává stejná
+   - šířka +3mm celkem (1mm + další 2mm)
 */
 .umbrella img {
-  width: calc(26px + 1mm);
+  width: calc(26px + 3mm);
   height: calc(26px - 0.5mm);
   display: block;
 }
