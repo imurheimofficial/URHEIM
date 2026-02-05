@@ -155,23 +155,13 @@ body {
 .reddit i { color:#C00613; }
 .steam i { color:#1386B7; }
 
-/* SECRET ICON STYLE (dvoubarevné) */
-.chest i {
-  color: #2a2a2a; /* tmavě šedá výplň */
-
-  /* zlaté hrany / obrys */
-  text-shadow:
-    -1px -1px 0 #ffd700,
-     1px -1px 0 #ffd700,
-    -1px  1px 0 #ffd700,
-     1px  1px 0 #ffd700,
-     0px -1px 0 #ffd700,
-     0px  1px 0 #ffd700,
-    -1px  0px 0 #ffd700,
-     1px  0px 0 #ffd700;
+/* ADDED (images) */
+.chest img,
+.umbrella img {
+  width: 26px;
+  height: 26px;
+  display: block;
 }
-
-.umbrella img { display:block; }
 
 /* FOOTER */
 .header {
@@ -240,9 +230,9 @@ body {
 
     <a class="tiktok" data-sound="TikTokSound.mp3" href="https://tiktok.com/@imurheimofficial">
       <svg viewBox="0 0 24 24">
-        <path fill="#25F4EE" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(-0.5,0.6)" />
-        <path fill="#FE2C55" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(0.6,-0.5)" />
-        <path fill="#FFFFFF" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 1 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" />
+        <path fill="#25F4EE" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 0 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(-0.5,0.6)" />
+        <path fill="#FE2C55" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 0 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" transform="translate(0.6,-0.5)" />
+        <path fill="#FFFFFF" d="M9 3v11.2a2.8 2.8 0 1 1-1.8-2.6V9a5 5 0 0 0 3.8 4.9V6.1a6.7 6.7 0 0 0 3.9 1.3V5.2A4.6 4.6 0 0 1 11.7 3H9z" />
       </svg>
     </a>
 
@@ -256,16 +246,16 @@ body {
 
     <a class="steam" data-sound="SteamSound.mp3" href="https://steamcommunity.com/id/imurheimofficial/"><i class="fab fa-steam"></i></a>
 
-    <!-- SECRET BUTTON -->
+    <!-- CHEST (image) -->
     <a class="chest" data-sound="selectchest.mp3" href="#">
-      <i class="fa-solid fa-eye-slash"></i>
+      <img src="Chest.png" alt="Chest">
     </a>
 
     <!-- UMBRELLA (hidden until password ok) -->
     <a class="umbrella" data-sound="ResidentEvil.mp3"
        href="https://residentevilmodding.boards.net/thread/18201/urheims-wesker-boss-mod?page=1&scrollTo=152613"
        style="display:none;">
-      <img src="umbrella.ico" alt="Umbrella" style="width:26px;height:26px;">
+      <img src="umbrellalogo.png" alt="Umbrella">
     </a>
 
   </div>
