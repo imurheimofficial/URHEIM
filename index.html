@@ -160,7 +160,6 @@ body {
 /* CHEST + UMBRELLA (FIXED)      */
 /* ============================= */
 
-/* wrapper aby umbrella byla přesně pod truhlou */
 .secret-wrap {
   position: relative;
   width: 28px;
@@ -172,8 +171,6 @@ body {
   width: 26px;
   height: 26px;
   display: block;
-
-  /* posun dolů o 0.2mm */
   transform: translateY(-0.8mm);
 }
 
@@ -190,12 +187,11 @@ body {
 }
 
 /* Umbrella:
-   - šířka +3mm
-   - výška zmenšená o další 2mm => celkem -2.5mm
+   - celkově +0.5mm (šířka i výška)
 */
 .umbrella img {
-  width: calc(26px + 3mm);
-  height: calc(26px - 2.5mm);
+  width: calc(26px + 3.5mm);
+  height: calc(26px - 2mm);
   display: block;
 }
 
@@ -335,7 +331,6 @@ document.querySelectorAll(".social-row a").forEach(link => {
 
   link.addEventListener("click", e => {
 
-    /* chest + umbrella řešíme zvlášť */
     if (link.classList.contains("chest") || link.classList.contains("umbrella")) {
       return;
     }
@@ -351,7 +346,6 @@ document.querySelectorAll(".social-row a").forEach(link => {
   });
 });
 
-
 /* CHEST + PASSWORD + UMBRELLA (10 sec) */
 const chest = document.querySelector(".chest");
 const umbrella = document.querySelector(".umbrella");
@@ -361,7 +355,6 @@ let umbrellaTimeout = null;
 chest.addEventListener("click", e => {
   e.preventDefault();
 
-  /* selectchest.mp3 */
   hoverSound.src = chest.dataset.sound;
   hoverSound.currentTime = 0;
   hoverSound.play();
@@ -371,15 +364,12 @@ chest.addEventListener("click", e => {
 
     if (pass === "residentevil") {
 
-      /* TreasureOpened.mp3 */
       hoverSound.src = "TreasureOpened.mp3";
       hoverSound.currentTime = 0;
       hoverSound.play();
 
-      /* show umbrella */
       umbrella.style.display = "flex";
 
-      /* reset timer */
       if (umbrellaTimeout) clearTimeout(umbrellaTimeout);
 
       umbrellaTimeout = setTimeout(() => {
@@ -396,7 +386,6 @@ chest.addEventListener("click", e => {
 umbrella.addEventListener("click", e => {
   e.preventDefault();
 
-  /* ResidentEvil.mp3 */
   hoverSound.src = umbrella.dataset.sound;
   hoverSound.currentTime = 0;
   hoverSound.play();
@@ -405,23 +394,6 @@ umbrella.addEventListener("click", e => {
     window.open(umbrella.href, "_blank");
   }, 300);
 });
-
-
-/* CONTACT */
-const contactHeader = document.getElementById("contactHeader");
-const contactEmail = document.getElementById("contactEmail");
-const gmail = document.getElementById("gmail");
-
-contactHeader.onclick = () => {
-  contactEmail.classList.toggle("open");
-};
-
-gmail.onclick = e => {
-  e.preventDefault();
-  hoverSound.src = gmail.dataset.sound;
-  hoverSound.play();
-  setTimeout(() => window.location.href = gmail.href, 300);
-};
 </script>
 
 </body>
