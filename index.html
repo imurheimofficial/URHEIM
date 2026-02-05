@@ -134,7 +134,16 @@ body {
   height: 26px;
 }
 
-.social-row a:hover { transform: scale(1.25); }
+/* ✅ Hover pro všechny ikony KROMĚ Umbrelly */
+.social-row a:hover {
+  transform: scale(1.25);
+}
+
+/* ❌ Umbrella a chest nebudou mít hover na <a> */
+.social-row a.umbrella:hover,
+.social-row a.chest:hover {
+  transform: none !important;
+}
 
 /* ✅ FIX TIKTOK */
 .social-row .tiktok svg {
@@ -173,6 +182,12 @@ body {
   height: 26px;
   display: block;
   transform: translateY(-0.8mm);
+  transition: transform .2s ease;
+}
+
+/* chest hover -> scale přes IMG */
+.chest img:hover {
+  transform: translateY(-0.8mm) scale(1.25);
 }
 
 /* UMBRELLA pod truhlou */
@@ -211,8 +226,13 @@ body {
   height: calc(26px - 1mm);
   display: block;
 
-  /* ✨ glow + pulse */
   animation: umbrellaGlow 1.2s infinite ease-in-out;
+  transition: transform .2s ease;
+}
+
+/* ✅ hover -> scale přes IMG (bez posunu) */
+.umbrella img:hover {
+  transform: scale(1.25);
 }
 
 /* PASSWORD BAR vedle truhly */
