@@ -173,8 +173,9 @@ body {
   height: 26px;
   display: block;
 
-  /* posun nahoru o 1mm */
-  transform: translateY(-1mm);
+  /* bylo: -1mm
+     teď: posun dolů o 0.2mm => -0.8mm */
+  transform: translateY(-0.8mm);
 }
 
 /* UMBRELLA pod truhlou */
@@ -191,10 +192,10 @@ body {
 
 /* Umbrella velikost:
    - výška -0.5mm
-   - šířka +0.5mm
+   - šířka +1mm (změna)
 */
 .umbrella img {
-  width: calc(26px + 0.5mm);
+  width: calc(26px + 1mm);
   height: calc(26px - 0.5mm);
   display: block;
 }
