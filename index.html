@@ -118,6 +118,7 @@ body {
   align-items: center;
 }
 
+/* standard icons */
 .social-row a {
   width: 28px;
   height: 28px;
@@ -156,26 +157,45 @@ body {
 .steam i { color:#1386B7; }
 
 /* ============================= */
-/* CHEST + UMBRELLA (FINAL)      */
+/* CHEST + UMBRELLA (FIXED)      */
 /* ============================= */
 
-/* Truhla v řadě stejně jako ostatní */
+/* wrapper aby umbrella byla přesně pod truhlou */
+.secret-wrap {
+  position: relative;
+  width: 28px;
+  height: 28px;
+}
+
+/* CHEST */
 .chest img {
   width: 26px;
   height: 26px;
   display: block;
+
+  /* posun nahoru o 1mm */
+  transform: translateY(-1mm);
 }
 
-/* Umbrella bude POD truhlou */
+/* UMBRELLA pod truhlou */
 .umbrella {
   position: absolute;
-  transform: translateY(32px); /* pod řádek ikon */
+  top: 32px; /* pod řádek ikon */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 28px;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Umbrella ikona velikostí stejná jako ostatní */
+/* Umbrella velikost:
+   - výška -0.5mm
+   - šířka +0.5mm
+*/
 .umbrella img {
-  width: 26px;
-  height: 26px;
+  width: calc(26px + 0.5mm);
+  height: calc(26px - 0.5mm);
   display: block;
 }
 
@@ -262,17 +282,22 @@ body {
 
     <a class="steam" data-sound="SteamSound.mp3" href="https://steamcommunity.com/id/imurheimofficial/"><i class="fab fa-steam"></i></a>
 
-    <!-- CHEST -->
-    <a class="chest" data-sound="selectchest.mp3" href="#">
-      <img src="Chest.png" alt="Chest">
-    </a>
+    <!-- WRAP: CHEST + UMBRELLA -->
+    <div class="secret-wrap">
 
-    <!-- UMBRELLA (hidden until password ok) -->
-    <a class="umbrella" data-sound="ResidentEvil.mp3"
-       href="https://residentevilmodding.boards.net/thread/18201/urheims-wesker-boss-mod?page=1&scrollTo=152613"
-       style="display:none;">
-      <img src="umbrellalogo.png" alt="Umbrella">
-    </a>
+      <!-- CHEST -->
+      <a class="chest" data-sound="selectchest.mp3" href="#">
+        <img src="Chest.png" alt="Chest">
+      </a>
+
+      <!-- UMBRELLA (hidden until password ok) -->
+      <a class="umbrella" data-sound="ResidentEvil.mp3"
+         href="https://residentevilmodding.boards.net/thread/18201/urheims-wesker-boss-mod?page=1&scrollTo=152613"
+         style="display:none;">
+        <img src="umbrellalogo.png" alt="Umbrella">
+      </a>
+
+    </div>
 
   </div>
 
