@@ -197,11 +197,10 @@ body {
 .passbar {
   position: absolute;
   top: 50%;
-  left: 36px; /* vedle truhly */
+  left: 36px;
   transform: translateY(-50%);
   display: none;
   align-items: center;
-  gap: 6px;
   z-index: 50;
 }
 
@@ -216,6 +215,26 @@ body {
   outline: none;
   padding: 0 8px;
   font-size: 12px;
+  transition: border .2s ease, box-shadow .2s ease;
+}
+
+/* ❌ wrong password effect */
+.passbar input.wrong {
+  border: 1px solid rgba(255, 60, 60, 0.95);
+  box-shadow: 0 0 8px rgba(255, 60, 60, 0.35);
+}
+
+/* shake animation */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+.passbar.shake {
+  animation: shake 0.25s linear;
 }
 
 /* FOOTER */
@@ -395,11 +414,28 @@ function showUmbrellaFor10s() {
 function hidePassbar() {
   passbar.style.display = "none";
   passInput.value = "";
+  passInput.classList.remove("wrong");
+  passbar.classList.remove("shake");
 }
 
 function showPassbar() {
   passbar.style.display = "flex";
   passInput.focus();
+}
+
+function wrongPasswordEffect() {
+  passInput.classList.add("wrong");
+  passbar.classList.add("shake");
+
+  setTimeout(() => {
+    passbar.classList.remove("shake");
+  }, 260);
+
+  setTimeout(() => {
+    passInput.classList.remove("wrong");
+    passInput.value = "";
+    passInput.focus();
+  }, 700);
 }
 
 chest.addEventListener("click", e => {
@@ -420,11 +456,12 @@ chest.addEventListener("click", e => {
 
 /* ENTER = submit */
 passInput.addEventListener("keydown", e => {
+
   if (e.key === "Enter") {
     const pass = passInput.value.trim();
 
     /* ✅ HESLO */
-    if (pass === "Wesker") {
+    if (pass === "weskerboss") {
 
       hoverSound.src = "TreasureOpened.mp3";
       hoverSound.currentTime = 0;
@@ -434,7 +471,7 @@ passInput.addEventListener("keydown", e => {
       showUmbrellaFor10s();
 
     } else {
-      alert("Wrong password.");
+      wrongPasswordEffect();
     }
   }
 
@@ -456,22 +493,6 @@ umbrella.addEventListener("click", e => {
     window.open(umbrella.href, "_blank");
   }, 300);
 });
-
-/* CONTACT */
-const contactHeader = document.getElementById("contactHeader");
-const contactEmail = document.getElementById("contactEmail");
-const gmail = document.getElementById("gmail");
-
-contactHeader.onclick = () => {
-  contactEmail.classList.toggle("open");
-};
-
-gmail.onclick = e => {
-  e.preventDefault();
-  hoverSound.src = gmail.dataset.sound;
-  hoverSound.play();
-  setTimeout(() => window.location.href = gmail.href, 300);
-};
 </script>
 
 </body>
