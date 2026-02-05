@@ -218,24 +218,6 @@ body {
   font-size: 12px;
 }
 
-/* oko */
-.passbar button {
-  width: 26px;
-  height: 26px;
-  border-radius: 6px;
-  border: 1px solid rgba(255,215,0,0.55);
-  background: rgba(0,0,0,0.75);
-  color: rgba(255,215,0,0.9);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.passbar button:hover {
-  color: #ffd700;
-}
-
 /* FOOTER */
 .header {
   margin-top: 8px;
@@ -328,10 +310,7 @@ body {
 
       <!-- PASSWORD BAR -->
       <div class="passbar" id="passbar">
-        <input id="passInput" type="password" placeholder="password">
-        <button id="toggleEye" type="button">
-          <i class="fa-solid fa-eye-slash"></i>
-        </button>
+        <input id="passInput" type="text" placeholder="password">
       </div>
 
       <!-- UMBRELLA -->
@@ -400,7 +379,6 @@ const umbrella = document.querySelector(".umbrella");
 
 const passbar = document.getElementById("passbar");
 const passInput = document.getElementById("passInput");
-const toggleEye = document.getElementById("toggleEye");
 
 let umbrellaTimeout = null;
 
@@ -445,13 +423,16 @@ passInput.addEventListener("keydown", e => {
   if (e.key === "Enter") {
     const pass = passInput.value.trim();
 
-    if (pass === "residentevil") {
+    /* ✅ HESLO */
+    if (pass === "Wesker") {
+
       hoverSound.src = "TreasureOpened.mp3";
       hoverSound.currentTime = 0;
       hoverSound.play();
 
       hidePassbar();
       showUmbrellaFor10s();
+
     } else {
       alert("Wrong password.");
     }
@@ -460,19 +441,6 @@ passInput.addEventListener("keydown", e => {
   /* ESC = close */
   if (e.key === "Escape") {
     hidePassbar();
-  }
-});
-
-/* show/hide password */
-toggleEye.addEventListener("click", () => {
-  const icon = toggleEye.querySelector("i");
-
-  if (passInput.type === "password") {
-    passInput.type = "text";
-    icon.className = "fa-solid fa-eye";
-  } else {
-    passInput.type = "password";
-    icon.className = "fa-solid fa-eye-slash";
   }
 });
 
