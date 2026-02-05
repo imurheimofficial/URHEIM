@@ -134,18 +134,13 @@ body {
   height: 26px;
 }
 
-/* ✅ Hover pro všechny ikony KROMĚ Umbrelly */
-.social-row a:hover {
-  transform: scale(1.25);
-}
+/* default hover for all normal icons */
+.social-row a:hover { transform: scale(1.25); }
 
-/* ❌ Umbrella a chest nebudou mít hover na <a> */
-.social-row a.umbrella:hover,
-.social-row a.chest:hover {
-  transform: none !important;
-}
+/* ✅ FIX: zabrání přepsání transformu u umbrelly */
+.social-row a.umbrella:hover { transform: translateX(-50%) !important; }
 
-/* ✅ FIX TIKTOK */
+/* tiktok */
 .social-row .tiktok svg {
   width: 26px;
   height: 26px;
@@ -185,7 +180,7 @@ body {
   transition: transform .2s ease;
 }
 
-/* chest hover -> scale přes IMG */
+/* chest hover = scale přes img */
 .chest img:hover {
   transform: translateY(-0.8mm) scale(1.25);
 }
@@ -202,7 +197,7 @@ body {
   align-items: center;
 }
 
-/* ✨ UMBRELLA GLOW ANIMATION */
+/* ✨ UMBRELLA GLOW */
 @keyframes umbrellaGlow {
   0% {
     filter:
@@ -225,12 +220,11 @@ body {
   width: calc(26px + 4.5mm);
   height: calc(26px - 1mm);
   display: block;
-
   animation: umbrellaGlow 1.2s infinite ease-in-out;
   transition: transform .2s ease;
 }
 
-/* ✅ hover -> scale přes IMG (bez posunu) */
+/* umbrella hover = scale přes img */
 .umbrella img:hover {
   transform: scale(1.25);
 }
@@ -246,7 +240,6 @@ body {
   z-index: 50;
 }
 
-/* input */
 .passbar input {
   width: 120px;
   height: 22px;
@@ -260,13 +253,12 @@ body {
   transition: border .2s ease, box-shadow .2s ease;
 }
 
-/* ❌ wrong password effect */
+/* wrong password */
 .passbar input.wrong {
   border: 1px solid rgba(255, 60, 60, 0.95);
   box-shadow: 0 0 8px rgba(255, 60, 60, 0.35);
 }
 
-/* shake animation */
 @keyframes shake {
   0% { transform: translateX(0); }
   25% { transform: translateX(-4px); }
@@ -361,20 +353,16 @@ body {
     <a class="reddit" data-sound="RedditSound.mp3" href="https://reddit.com/user/imurheimofficial/"><i class="fab fa-reddit"></i></a>
     <a class="steam" data-sound="SteamSound.mp3" href="https://steamcommunity.com/id/imurheimofficial/"><i class="fab fa-steam"></i></a>
 
-    <!-- WRAP: CHEST + UMBRELLA + PASSBAR -->
     <div class="secret-wrap">
 
-      <!-- CHEST -->
       <a class="chest" data-sound="selectchest.mp3" href="#">
         <img src="Chest.png" alt="Chest">
       </a>
 
-      <!-- PASSWORD BAR -->
       <div class="passbar" id="passbar">
         <input id="passInput" type="text" placeholder="password">
       </div>
 
-      <!-- UMBRELLA -->
       <a class="umbrella" data-sound="ResidentEvil.mp3"
          href="https://residentevilmodding.boards.net/thread/18201/urheims-wesker-boss-mod?page=1&scrollTo=152613"
          style="display:none;">
