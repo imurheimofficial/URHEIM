@@ -187,10 +187,32 @@ body {
   align-items: center;
 }
 
+/* ✨ UMBRELLA GLOW ANIMATION */
+@keyframes umbrellaGlow {
+  0% {
+    filter:
+      drop-shadow(0 0 4px rgba(255, 0, 0, 0.45))
+      drop-shadow(0 0 10px rgba(255, 215, 0, 0.18));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 8px rgba(255, 0, 0, 0.70))
+      drop-shadow(0 0 16px rgba(255, 215, 0, 0.30));
+  }
+  100% {
+    filter:
+      drop-shadow(0 0 4px rgba(255, 0, 0, 0.45))
+      drop-shadow(0 0 10px rgba(255, 215, 0, 0.18));
+  }
+}
+
 .umbrella img {
   width: calc(26px + 4.5mm);
   height: calc(26px - 1mm);
   display: block;
+
+  /* ✨ glow + pulse */
+  animation: umbrellaGlow 1.2s infinite ease-in-out;
 }
 
 /* PASSWORD BAR vedle truhly */
@@ -460,7 +482,6 @@ passInput.addEventListener("keydown", e => {
   if (e.key === "Enter") {
     const pass = passInput.value.trim();
 
-    /* ✅ HESLO */
     if (pass === "weskerboss") {
 
       hoverSound.src = "TreasureOpened.mp3";
@@ -475,7 +496,6 @@ passInput.addEventListener("keydown", e => {
     }
   }
 
-  /* ESC = close */
   if (e.key === "Escape") {
     hidePassbar();
   }
