@@ -155,12 +155,33 @@ body {
 .reddit i { color:#C00613; }
 .steam i { color:#1386B7; }
 
-/* ADDED (images) */
+/* ============================= */
+/* CHEST + UMBRELLA (FIXED)      */
+/* ============================= */
+
 .chest img,
 .umbrella img {
-  width: 26px;
-  height: 26px;
   display: block;
+}
+
+/* CHEST:
+   - +2px size
+   - posun nahoru cca 8px (~2mm)
+*/
+.chest img {
+  width: 28px;
+  height: 28px;
+  transform: translateY(-8px);
+}
+
+/* UMBRELLA:
+   - zmenšit výšku o cca 8px (~2mm)
+   - lehce posunout nahoru aby seděla v řadě
+*/
+.umbrella img {
+  width: 26px;
+  height: 18px;
+  transform: translateY(-2px);
 }
 
 /* FOOTER */
@@ -246,7 +267,7 @@ body {
 
     <a class="steam" data-sound="SteamSound.mp3" href="https://steamcommunity.com/id/imurheimofficial/"><i class="fab fa-steam"></i></a>
 
-    <!-- CHEST (image) -->
+    <!-- CHEST -->
     <a class="chest" data-sound="selectchest.mp3" href="#">
       <img src="Chest.png" alt="Chest">
     </a>
