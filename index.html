@@ -114,7 +114,7 @@ body {
 /* ===== ICONS ===== */
 .social-row {
   display: flex;
-  gap: 22px; /* ← JEDINÁ ZMĚNA (bylo 26px) */
+  gap: 22px;
   align-items: center;
 }
 
@@ -156,32 +156,27 @@ body {
 .steam i { color:#1386B7; }
 
 /* ============================= */
-/* CHEST + UMBRELLA (FIXED)      */
+/* CHEST + UMBRELLA (FINAL)      */
 /* ============================= */
 
-.chest img,
-.umbrella img {
+/* Truhla v řadě stejně jako ostatní */
+.chest img {
+  width: 26px;
+  height: 26px;
   display: block;
 }
 
-/* CHEST:
-   - +2px size
-   - posun nahoru cca 8px (~2mm)
-*/
-.chest img {
-  width: 28px;
-  height: 28px;
-  transform: translateY(-8px);
+/* Umbrella bude POD truhlou */
+.umbrella {
+  position: absolute;
+  transform: translateY(32px); /* pod řádek ikon */
 }
 
-/* UMBRELLA:
-   - zmenšit výšku o cca 8px (~2mm)
-   - lehce posunout nahoru aby seděla v řadě
-*/
+/* Umbrella ikona velikostí stejná jako ostatní */
 .umbrella img {
   width: 26px;
-  height: 18px;
-  transform: translateY(-2px);
+  height: 26px;
+  display: block;
 }
 
 /* FOOTER */
@@ -332,9 +327,11 @@ document.querySelectorAll(".social-row a").forEach(link => {
 });
 
 
-/* CHEST + PASSWORD + UMBRELLA */
+/* CHEST + PASSWORD + UMBRELLA (10 sec) */
 const chest = document.querySelector(".chest");
 const umbrella = document.querySelector(".umbrella");
+
+let umbrellaTimeout = null;
 
 chest.addEventListener("click", e => {
   e.preventDefault();
@@ -356,6 +353,13 @@ chest.addEventListener("click", e => {
 
       /* show umbrella */
       umbrella.style.display = "flex";
+
+      /* reset timer */
+      if (umbrellaTimeout) clearTimeout(umbrellaTimeout);
+
+      umbrellaTimeout = setTimeout(() => {
+        umbrella.style.display = "none";
+      }, 10000);
 
     } else {
       alert("Wrong password.");
